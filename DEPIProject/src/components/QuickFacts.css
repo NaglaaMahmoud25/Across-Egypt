@@ -1,0 +1,54 @@
+.quick-facts-container {
+  width: 300px;
+  padding: 10px;
+
+}
+
+@media (max-width: 780px) {
+.quick-facts-container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: auto;
+}
+}
+.quick-facts-container h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  
+}
+
+.quick-facts-container span {
+  font-size: 25px;
+  color: #E3A72F; ;
+  margin-bottom: 15px;
+  font-weight: bold;
+  
+}
+.fact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.fact-icon {
+  font-size: 22px;
+  color: #c7a246;
+  margin-top: 14px;
+}
+
+.fact-item  div h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.fact-item   div  p {
+  margin: auto;
+  font-size: 12px;
+  color: #888;
+   text-align: left;
+}

@@ -1,0 +1,119 @@
+.privacy-page {
+  max-width: 1200px;
+  margin: 140px auto 50px;
+  padding: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  color: #333;
+}
+
+body.dark-mode .privacy-page {
+  color: #ddd;
+}
+
+/* Hero Section */
+.privacy-hero {
+  text-align: center;
+  background: linear-gradient(135deg, #fff4e6, #fff9f0);
+  padding: 60px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.privacy-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #d4af37;
+}
+
+.privacy-hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 35px;
+}
+
+/* Grid Cards - متناسقة */
+.privacy-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.privacy-card {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.privacy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  color: #d4af37;
+}
+
+.privacy-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+body.dark-mode .privacy-card {
+  background-color: #1c1c1c;
+  color: #ddd;
+}
+
+body.dark-mode .privacy-card h3 {
+  color: #ffd700;
+}
+
+body.dark-mode .card-icon {
+  color: #ffd700;
+}
+
+.privacy-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+body.dark-mode .privacy-card p {
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .privacy-content {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .privacy-page {
+    margin: 120px 15px 50px;
+  }
+
+  .privacy-hero h1 {
+    font-size: 2rem;
+  }
+
+  .privacy-card h3 {
+    font-size: 1.2rem;
+  }
+}

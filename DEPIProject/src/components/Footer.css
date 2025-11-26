@@ -1,0 +1,185 @@
+/* ===== Footer CSS ===== */
+.footer {
+  background: linear-gradient(180deg, #0a0a0a, #1a1a1a);
+  color: #ddd;
+  padding: 45px 25px 25px;
+  font-family: "Poppins", sans-serif;
+  border-top: 4px solid #f9d423;
+}
+
+.footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* ===== Columns Titles ===== */
+.footer-column h3 {
+  color: #f9d423;
+  font-size: 19px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.footer-column h3::after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: #f9d423;
+  margin-top: 5px;
+}
+
+/* ===== Lists ===== */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+  color: #bbb;
+  font-size: 15px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #f9d423;
+}
+
+/* ===== Column 1: About ===== */
+.footer-column.about {
+  display: flex;
+  flex-direction: column; /* ترتيب عمودي: النص فوق اللوجو */
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-column.about h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #f9d423;
+  font-weight: 600;
+}
+
+.footer-column.about .footer-logo img {
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 0;
+  background-color: transparent;
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  margin: 0;
+}
+
+.footer-column.about p {
+  margin-top: 0;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-column.about .footer-social {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.footer-column.about .footer-social a {
+  color: #111;
+  background: #d4af37;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.footer-column.about .footer-social a:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ===== Contact Column ===== */
+.contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.contact ul li i {
+  color: #f9d423;
+}
+
+.footer-map {
+  margin-top: 10px;
+  border: none;
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+}
+
+/* ===== Bottom Section ===== */
+.footer-bottom {
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ===== Back to Top Button ===== */
+.back-btn {
+  background-color: #d4af37;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 19px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.back-btn:hover {
+  background-color: #e0c15a;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+  transform: translateY(-2px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-wrapper {
+    text-align: center;
+  }
+  .footer-column.about {
+    align-items: center; /* العمود الأول في الوسط على الموبايل */
+  }
+  .footer-column.about .footer-logo {
+    align-items: center;
+  }
+  .footer-column.about .footer-social {
+    justify-content: center;
+  }
+  .footer-map {
+    height: 140px;
+  }
+}

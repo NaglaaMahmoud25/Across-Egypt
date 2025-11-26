@@ -1,0 +1,62 @@
+.about-container {
+  text-align: center;
+  background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+  color: #f8f8f8;
+  padding: 80px 20px 40px; /* خففنا المسافة من تحت */
+  font-family: "Poppins", sans-serif;
+}
+.about-hero h1 {
+  font-size: 3rem;
+ color: #E3A72F; ;
+  margin-bottom: 10px;
+}
+
+.about-hero h1 span {
+  color: #ffffff;
+}
+
+.about-hero p {
+  color: #bbb;
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+}
+
+.about-section:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+.about-icon {
+  font-size: 3rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.about-section h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,81 @@
+
+/* Login.css */
+.login-box {
+  position: absolute;
+  top: 40px; 
+  right: 200px;
+  width: 350px;
+  background: white;
+  border-radius: 1px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.login-box .login-btn {
+  width: 103%;
+  background: linear-gradient(90deg, #b8860b, #ffd700);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.login-box .login-btn:hover {
+  transform: scale(1.05);
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.login-links a {
+  text-decoration: none;
+  color: #555; /* اللون الافتراضي */
+}
+
+.login-links a.forgot,
+.login-links a.signup {
+  color: #448cda; /* الأزرق */
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-box {
+    top: 20px;
+    right: 20px;
+    width: 90%;
+  }
+}

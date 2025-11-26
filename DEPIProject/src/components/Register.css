@@ -1,0 +1,152 @@
+.register-page {
+  background: linear-gradient(180deg, #0e0e0e 0%, #1a1a1a 100%);
+  color: #f8f8f8;
+  font-family: "Poppins", sans-serif;
+  padding-top: 5rem;
+  min-height: 100vh;
+}
+
+/* Header */
+.register-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.register-header h1 {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.register-header p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+/* Content */
+.register-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 20px 10%;
+}
+
+/* Form container */
+.register-form-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.register-form {
+  background: rgba(30, 30, 30, 0.9);
+  border: 1px solid #d4af37;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.register-form:hover {
+  transform: translateY(-5px);
+}
+
+.register-form label {
+  font-weight: 500;
+  color: #d4af37;
+  margin-top: 10px;
+  display: block;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background: #111;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.register-form input::placeholder {
+  color: #ccc;
+}
+
+.register-form input:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.register-form button {
+  display: block;
+  margin: 0 auto;
+  background: #d4af37;
+  color: #111;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.register-form button:hover {
+  background: #b9972f;
+  transform: scale(1.05);
+}
+
+.success {
+  color: #d4af37;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Image */
+.register-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.register-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s;
+  margin-bottom: 10px;
+}
+
+.register-image img:hover {
+  transform: scale(1.03);
+}
+
+.image-texts {
+  margin-top: 15px;
+  text-align: center;
+  color: #d4af37; /* ذهبي متناسق مع الموقع */
+}
+
+.image-texts h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
+.image-texts p {
+  font-size: 1rem;
+  color: #f0f0f0; /* أبيض فاتح لسهولة القراءة */
+  line-height: 1.4;
+}

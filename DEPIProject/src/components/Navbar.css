@@ -1,0 +1,424 @@
+/* ===================== Body Dark/Light Mode ===================== */
+body.dark-mode {   
+  background-color: #0d0d0d;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #fdfdfd;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================== Top Info Bar ===================== */
+.top-info-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  color: #fff;
+  font-size: 0.85rem;
+  z-index: 1200;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.top-info-bar .info-left span {
+  margin-right: 20px;
+}
+
+.top-info-bar .info-right a {
+  margin-left: 15px;
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.top-info-bar .info-right a:hover {
+  color: #ffd700;
+}
+
+/* ===================== Top Bar ===================== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  color: #fff;
+  z-index: 1200;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.top-bar .info-left .top-icon {
+  color: #d4af37;
+  font-size: 1rem;
+}
+
+.info-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.info-left span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.top-bar .top-search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar .search-input {
+  width: 60%;
+  max-width: 500px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: #222;
+  color: #fff;
+}
+
+.top-bar .search-input::placeholder {
+  color: #ccc;
+}
+
+.top-bar .search-icon {
+  color: #d4af37;
+  margin-left: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.top-bar .search-icon:hover {
+  transform: scale(1.2);
+}
+
+.top-bar .info-right a {
+  margin-left: 15px;
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.top-bar .info-right a:hover {
+  color: #ffd700;
+}
+
+/* ===================== Navbar ===================== */
+.navbar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  z-index: 1100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px 0;
+  background-color: #000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Logo */
+.navbar-left .logo {
+  width: 150px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.navbar-left .logo:hover {
+  transform: scale(1.05);
+}
+
+/* Browse Buttons */
+.browse-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.browse-dropdown {
+  position: relative;
+}
+
+.browse-btn {
+  background-color: #d4af37;
+  color: #161313;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.browse-btn:hover {
+  background-color: #f1cc4b;
+  transform: scale(1.05);
+}
+
+/* Dropdown Menu */
+.category-menu {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  list-style: none;
+  padding: 5px 0;
+  width: 150px;
+  z-index: 1000;
+}
+
+.category-menu li {
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-menu li:hover {
+  background-color: #f1cc4b;
+  color: #000;
+}
+
+/* ===================== Info Dropdown (Left Icon) ===================== */
+.info-dropdown {
+  position: relative;
+}
+
+.info-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.three-lines span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background-color: #d4af37;
+  transition: all 0.3s;
+}
+
+.info-menu {
+  position: absolute;
+  top: px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px 0;
+  min-width: 180px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  z-index: 1200;
+}
+
+.info-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.info-menu li:hover {
+  background-color: #f1cc4b;
+  color: #000;
+}
+
+.info-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* ===================== Dark Mode Adjustments ===================== */
+body.dark-mode .browse-btn {
+  background-color: #444;
+  color: #ffd700;
+}
+
+body.dark-mode .category-menu {
+  background-color: #333;
+  color: #ffd700;
+  border: 1px solid #555;
+}
+
+body.dark-mode .category-menu li:hover {
+  background-color: #444;
+  color: #ffd700;
+}
+
+body.dark-mode .three-lines span {
+  background-color: #ffd700;
+}
+
+body.dark-mode .info-menu {
+  background-color: #333;
+  color: #ffd700;
+  border: 1px solid #555;
+}
+
+body.dark-mode .info-menu li:hover {
+  background-color: #444;
+  color: #ffd700;
+}
+
+/* ===================== Links Right ===================== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-weight: 500;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #d4af37;
+}
+
+/* Buttons */
+.login-btn,
+.register-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #d4af37;
+  background: none;
+  color: #d4af37;
+  transition: all 0.3s;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+body.dark-mode .login-btn,
+body.dark-mode .register-btn {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+body.dark-mode .login-btn:hover,
+body.dark-mode .register-btn:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+/* Dark Mode Toggle */
+.mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #d4af37;
+  transition: transform 0.3s;
+}
+
+.mode-toggle:hover {
+  transform: rotate(20deg);
+}
+
+/* Language Icon */
+.language-icon {
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.language-icon:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Login Popup */
+.login-popup {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  z-index: 1200;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 1024px) {
+  .navbar-right { gap: 25px; }
+  .browse-group { gap: 15px; }
+}
+
+@media (max-width: 768px) {
+  .navbar-links { display: none; }
+  .browse-btn, .language-icon, .login-btn, .register-btn { font-size: 0.9rem; padding: 6px 12px; }
+  .top-info-bar { padding: 0 20px; font-size: 0.8rem; }
+  .top-search-bar { padding: 0 20px; }
+  .info-dropdown { margin-right: 10px; }
+  .info-menu { top: 40px; min-width: 150px; }
+}
