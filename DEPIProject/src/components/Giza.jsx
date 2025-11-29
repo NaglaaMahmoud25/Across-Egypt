@@ -132,18 +132,19 @@ export default function Giza() {
             </p>
           </motion.section>
 
-          {/* Hotels */}
+          {/*بعد تظبيط الصوره Hotels */}
+        
           <motion.section className="giza-section" variants={fadeUp}>
             <div className="section-icon-circle"><i className="fas fa-concierge-bell"></i></div>
             <h2 className="section-title">Popular Nearby Hotels</h2>
             <div className="row g-4">
               {[
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/244292074.jpg", name: "Marriott Mena House", loc: "Pyramids View", link: "https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/483329155.jpg", name: "Le Méridien Pyramids", loc: "Giza", link: "https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" },
+                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/477413612.jpg", name: "Marriott Mena House", loc: "Pyramids View", link: "https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" },
+                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/477413612.jpg", name: "Le Méridien Pyramids", loc: "Giza", link: "https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" },
                 { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/319766463.jpg", name: "Pyramids View Inn", loc: "Direct View", link: "https://www.booking.com/hotel/eg/pyramids-view-inn.en-gb.html" },
                 { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282103243.jpg", name: "Hilton Pyramids Golf", loc: "6th of October", link: "https://www.booking.com/hotel/eg/hilton-pyramids-golf.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/52461407.jpg", name: "Steigenberger Pyramids", loc: "New Opening", link: "https://www.booking.com/hotel/eg/steigenberger-pyramids-cairo.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/379966415.jpg", name: "Pyramids Resort by Jazz", loc: "Giza", link: "https://www.booking.com/hotel/eg/pyramids-resort-by-jazz.en-gb.html" }
+                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/52461407.jpg", name: "Steigenberger Pyramids Cairo", loc: "New Opening", link: "https://www.booking.com/hotel/eg/steigenberger-pyramids-cairo.en-gb.html" },
+                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/496249374.jpg", name: "Helnan Dreamland Hotel", loc: "6th of October City", link: "https://www.booking.com/hotel/eg/helnan-dreamland.en-gb.html" }
               ].map((hotel, i) => (
                 <div className="col-lg-4 col-md-6" key={i}>
                   <motion.article className="hotel-card h-100" whileHover={cardHover} variants={fadeUp}>
