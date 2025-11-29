@@ -30,7 +30,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import RelatedSites from "./pages/RelatedSites";
 import FAQ from "./pages/FAQ";
-import Sinaa from "./component/Sinaa";
+import Sinaa from "./components/Sinaa";
 function App() {
 
   // هنا تعريف الـ state قبل أي استخدام
