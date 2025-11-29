@@ -89,5 +89,20 @@ export const cities = [
       location: "South Sinai",
     
     }
+  } 
+   {
+  name: "Sinai",
+  image: "/imges/egypt/sina.jpg",
+  link: "/sina",
+  description:
+    "Sinai is a unique Egyptian peninsula known for its stunning mountains, sacred religious sites, Bedouin culture, and beautiful Red Sea and Mediterranean coastlines.",
+  facts: {
+    area: "61,000 km²",
+    population: "≈ 1.1M",
+    founded: "Historically ancient",
+    industries: "Tourism, Agriculture, Mining",
+    famous: "Mount Sinai, Saint Catherine, Taba, Nuweiba, Dahab",
+    location: "Eastern Egypt",
   }
+}
 ];
