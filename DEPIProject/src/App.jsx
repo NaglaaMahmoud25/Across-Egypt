@@ -30,6 +30,7 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import RelatedSites from "./pages/RelatedSites";
 import FAQ from "./pages/FAQ";
+import Sinaa from "./component/Sinaa";
 function App() {
 
   // هنا تعريف الـ state قبل أي استخدام
@@ -53,7 +54,7 @@ function App() {
 <Route path="/red-sea" element={<Red />} />
 
                 <Route path="/sharm" element={<Sharm />} />
-
+    <Route path="/sina" element={<Sinaa />} />
                   <Route path="/Contact" element={<Contact />} />
   <Route path="/images" element={<ImagesPage />} />
         <Route path="/timeline" element={<EgyptTimeline />} />
