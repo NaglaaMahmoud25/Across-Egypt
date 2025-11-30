@@ -89,7 +89,7 @@ export const cities = [
       location: "South Sinai",
     
     }
-  } 
+  }, 
    {
   name: "Sinai",
   image: "/imges/egypt/sina.jpg",
@@ -103,6 +103,6 @@ export const cities = [
     industries: "Tourism, Agriculture, Mining",
     famous: "Mount Sinai, Saint Catherine, Taba, Nuweiba, Dahab",
     location: "Eastern Egypt",
-  }
+  },
 }
 ];
