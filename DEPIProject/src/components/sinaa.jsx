@@ -9,7 +9,7 @@ const containerVariant = { hidden: {}, show: { transition: { staggerChildren: 0.
 const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } } };
 const cardHover = { scale: 1.05, transition: { duration: 0.3 } };
 
-export default function sinaa() {
+export default function Sinai() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -39,10 +39,13 @@ export default function sinaa() {
       {/* Hero */}
       <motion.header
         className="sinaa-hero position-relative d-flex align-items-center justify-content-center text-center"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}
-        onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mount_sinaa_%28Egypt%29.jpg/1920px-Mount_sinaa_%28Egypt%29.jpg")`,
+          backgroundImage: `url("/images/egypt/sinai/sinai_hero.jpg")`,
           transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02)`,
           transformStyle: "preserve-3d",
           transition: "transform 0.1s ease-out"
@@ -50,7 +53,9 @@ export default function sinaa() {
       >
         <div className="hero-overlay"></div>
         <motion.div className="hero-content">
-          <motion.h1 className="display-3 fw-bold" style={{ transform: "translateZ(60px)" }}>sinaa</motion.h1>
+          <motion.h1 className="display-3 fw-bold" style={{ transform: "translateZ(60px)" }}>
+            Sinai
+          </motion.h1>
           <motion.p className="lead fs-3" style={{ transform: "translateZ(40px)" }}>
             The Land of Turquoise Beaches, Sacred Mountains and Eternal Desert Beauty
           </motion.p>
@@ -65,9 +70,9 @@ export default function sinaa() {
             <div className="section-icon-circle"><i className="fas fa-info"></i></div>
             <h2 className="section-title">Description</h2>
             <div className="section-content text-light lh-lg">
-              <p>sinaa Peninsula is one of the most breathtaking and spiritually rich regions in the world, connecting Africa and Asia through a land of dramatic contrasts: turquoise waters, coral reefs, golden deserts, and towering granite mountains.</p>
-              <p>Known as the "Land of the Prophets", it is where Prophet Moses received the Ten Commandments on Mount sinaa. It is home to Saint Catherine’s Monastery (UNESCO World Heritage), the Colored Canyon, the Blue Hole in Dahab, and Ras Mohammed National Park – one of the best diving spots on Earth.</p>
-              <p>From the luxury resorts of Sharm El Sheikh to the bohemian vibes of Dahab, from the serenity of Nuweiba to the adventure of Taba and Saint Catherine, sinaa offers everything: diving, hiking, safari, yoga retreats, and Bedouin culture under the clearest starry sky in Egypt.</p>
+              <p>Sinai Peninsula is one of the most breathtaking and spiritually rich regions in the world, connecting Africa and Asia through a land of dramatic contrasts: turquoise waters, coral reefs, golden deserts, and towering granite mountains.</p>
+              <p>Known as the "Land of the Prophets", it is where Prophet Moses received the Ten Commandments on Mount Sinai. It is home to Saint Catherine’s Monastery (UNESCO World Heritage), the Colored Canyon, the Blue Hole in Dahab, and Ras Mohammed National Park – one of the best diving spots on Earth.</p>
+              <p>From the luxury resorts of Sharm El Sheikh to the bohemian vibes of Dahab, from the serenity of Nuweiba to the adventure of Taba and Saint Catherine, Sinai offers everything: diving, hiking, safari, yoga retreats, and Bedouin culture under the clearest starry sky in Egypt.</p>
             </div>
           </motion.section>
 
@@ -77,25 +82,26 @@ export default function sinaa() {
             <h2 className="section-title">Location on Map</h2>
             <div className="map-container ratio ratio-16x9 shadow-lg rounded overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d356451.968571183!2d33.908354!3d29.498784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1436a0a9a9a9a9a9:0x9c9e9e9e9e9e9e9e!2ssinaa%20Peninsula!5e0!3m2!1sen!2seg!4v1735660000000"
-                allowFullScreen loading="lazy" title="sinaa Map" className="border-0"></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d356451.968571183!2d33.908354!3d29.498784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1436a0a9a9a9a9a9:0x9c9e9e9e9e9e9e9e!2sSinai%20Peninsula!5e0!3m2!1sen!2seg!4v1735660000000"
+                allowFullScreen loading="lazy" title="Sinai Map" className="border-0">
+              </iframe>
             </div>
           </motion.section>
 
-          {/* Landmarks – 8 معالم */}
+          {/* Landmarks */}
           <motion.section className="sinaa-section mb-5" variants={fadeUp}>
             <div className="section-icon-circle"><i className="fas fa-images"></i></div>
-            <h2 className="section-title">sinaa Landmarks</h2>
+            <h2 className="section-title">Sinai Landmarks</h2>
             <div className="row g-4">
               {[
-                { src: "https://images.pexels.com/photos/1571470/pexels-photo-1571470.jpeg", title: "Mount sinaa (Jabal Musa)", desc: "Sacred mountain of divine revelation" },
-                { src: "https://images.pexels.com/photos/346768/pexels-photo-346768.jpeg", title: "Sharm El Sheikh Beaches", desc: "Crystal waters and world-class diving" },
-                { src: "https://images.pexels.com/photos/2064827/pexels-photo-2064827.jpeg", title: "Saint Catherine's Monastery", desc: "UNESCO site and oldest Christian monastery" },
-                { src: "https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg", title: "Blue Hole - Dahab", desc: "One of the most dangerous and beautiful dive sites" },
-                { src: "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg", title: "Colored Canyon", desc: "Natural masterpiece of colorful rock formations" },
-                { src: "https://images.pexels.com/photos/2583852/pexels-photo-2583852.jpeg", title: "Ras Mohammed National Park", desc: "Protected marine paradise with magical coral" },
-                { src: "https://images.pexels.com/photos/13669152/pexels-photo-13669152.jpeg", title: "White Canyon", desc: "Stunning white limestone canyon adventure" },
-                { src: "https://images.pexels.com/photos/739406/pexels-photo-739406.jpeg", title: "Taba Heights", desc: "Luxury and tranquility on the Gulf of Aqaba" }
+                { src: "/images/egypt/sinai/sinai_mount.jpg",       title: "Mount Sinai (Jabal Musa)", desc: "Sacred mountain of divine revelation" },
+                { src: "/images/egypt/sinai/sinai_sharm.jpg",       title: "Sharm El Sheikh Beaches", desc: "Crystal waters and world-class diving" },
+                { src: "/images/egypt/sinai/sinai_catherine.jpg",   title: "Saint Catherine's Monastery", desc: "UNESCO site and oldest Christian monastery" },
+                { src: "/images/egypt/sinai/sinai_bluehole.jpg",    title: "Blue Hole - Dahab", desc: "One of the most dangerous and beautiful dive sites" },
+                { src: "/images/egypt/sinai/sinai_colored.jpg",     title: "Colored Canyon", desc: "Natural masterpiece of colorful rock formations" },
+                { src: "/images/egypt/sinai/sinai_ras.jpg",         title: "Ras Mohammed National Park", desc: "Protected marine paradise with magical coral" },
+                { src: "/images/egypt/sinai/sinai_white.jpg",       title: "White Canyon", desc: "Stunning white limestone canyon adventure" },
+                { src: "/images/egypt/sinai/sinai_taba.jpg",        title: "Taba Heights", desc: "Luxury and tranquility on the Gulf of Aqaba" }
               ].map((item, i) => (
                 <div className="col-lg-3 col-md-4 col-sm-6" key={i}>
                   <motion.div className="image-card h-100" whileHover={cardHover} variants={fadeUp}>
@@ -113,9 +119,9 @@ export default function sinaa() {
           {/* Video */}
           <motion.section className="sinaa-section mb-5" variants={fadeUp}>
             <div className="section-icon-circle"><i className="fas fa-film"></i></div>
-            <h2 className="section-title">Video about sinaa</h2>
+            <h2 className="section-title">Video about Sinai</h2>
             <div className="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
-              <iframe src="https://www.youtube.com/embed/9k5W6u5v8f0" title="sinaa 2024" allowFullScreen></iframe>
+              <iframe src="https://www.youtube.com/embed/9k5W6u5v8f0" title="Sinai 2024" allowFullScreen></iframe>
             </div>
           </motion.section>
 
@@ -128,18 +134,18 @@ export default function sinaa() {
             </p>
           </motion.section>
 
-          {/* Hotels – 6 فنادق */}
+          {/* Hotels */}
           <motion.section className="sinaa-section mb-5" variants={fadeUp}>
             <div className="section-icon-circle"><i className="fas fa-concierge-bell"></i></div>
-            <h2 className="section-title">Popular Hotels in sinaa</h2>
+            <h2 className="section-title">Popular Hotels in Sinai</h2>
             <div className="row g-4">
               {[
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/244292074.jpg", name: "Four Seasons Sharm El Sheikh", loc: "Sharm El Sheikh", link: "https://www.booking.com/hotel/eg/four-seasons-resort-sharm-el-sheikh.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/483329155.jpg", name: "Rixos Premium Seagate", loc: "Nabq Bay", link: "https://www.booking.com/hotel/eg/rixos-seagate-sharm.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/319766463.jpg", name: "Stella Di Mare Beach Hotel & Spa", loc: "Sharm El Maya", link: "https://www.booking.com/hotel/eg/stella-di-mare-beach-hotel-spa-sharm-el-sheikh.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/282103243.jpg", name: "Albatros Laguna Vista - Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/laguna-vista-beach-resort-dahab.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/52461407.jpg", name: "Movenpick Resort Taba", loc: "Taba", link: "https://www.booking.com/hotel/eg/moevenpick-resort-taba.en-gb.html" },
-                { img: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/379966415.jpg", name: "Swiss Inn Resort Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/swiss-inn-resort-dahab.en-gb.html" }
+                { img: "/images/egypt/sinai/sinai_four.jpg",      name: "Four Seasons Sharm El Sheikh", loc: "Sharm El Sheikh", link: "https://www.booking.com/hotel/eg/four-seasons-resort-sharm-el-sheikh.en-gb.html" },
+                { img: "/images/egypt/sinai/sinai_rixos.jpg",     name: "Rixos Premium Seagate", loc: "Nabq Bay", link: "https://www.booking.com/hotel/eg/rixos-seagate-sharm.en-gb.html" },
+                { img: "/images/egypt/sinai/sinai_stella.jpg",    name: "Stella Di Mare Beach Hotel & Spa", loc: "Sharm El Maya", link: "https://www.booking.com/hotel/eg/stella-di-mare-beach-hotel-spa-sharm-el-sheikh.en-gb.html" },
+                { img: "/images/egypt/sinai/sinai_albatros.jpg",  name: "Albatros Laguna Vista - Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/laguna-vista-beach-resort-dahab.en-gb.html" },
+                { img: "/images/egypt/sinai/sinai_movenpick.jpg", name: "Movenpick Resort Taba", loc: "Taba", link: "https://www.booking.com/hotel/eg/moevenpick-resort-taba.en-gb.html" },
+                { img: "/images/egypt/sinai/sinai_swiss.jpg",     name: "Swiss Inn Resort Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/swiss-inn-resort-dahab.en-gb.html" }
               ].map((hotel, i) => (
                 <div className="col-lg-4 col-md-6" key={i}>
                   <motion.article className="hotel-card h-100" whileHover={cardHover} variants={fadeUp}>
@@ -161,10 +167,10 @@ export default function sinaa() {
             </div>
           </motion.section>
 
-          {/* خطة سفر أسبوع في سيناء */}
+          {/* 7-Day Itinerary */}
           <motion.section className="sinaa-section mb-5" variants={fadeUp}>
             <div className="section-icon-circle"><i className="fas fa-route"></i></div>
-            <h2 className="section-title">Suggested 7-Day Itinerary in sinaa</h2>
+            <h2 className="section-title">Suggested 7-Day Itinerary in Sinai</h2>
             <div className="table-responsive">
               <table className="table table-dark table-striped table-hover align-middle">
                 <thead className="table-info">
@@ -180,7 +186,7 @@ export default function sinaa() {
                   <tr><td>2</td><td>Ras Mohammed</td><td>Snorkeling/Diving + Boat Trip</td><td>Sharm El Sheikh</td></tr>
                   <tr><td>3</td><td>Dahab</td><td>Blue Hole + Canyon Dive + Lagoon</td><td>Dahab (Swiss Inn)</td></tr>
                   <tr><td>4</td><td>Colored & White Canyon</td><td>Jeep Safari + Hiking</td><td>Dahab or Nuweiba</td></tr>
-                  <tr><td>5</td><td>Saint Catherine</td><td>Mount sinaa Sunrise Hike + Monastery</td><td>Saint Catherine</td></tr>
+                  <tr><td>5</td><td>Saint Catherine</td><td>Mount Sinai Sunrise Hike + Monastery</td><td>Saint Catherine</td></tr>
                   <tr><td>6</td><td>Nuweiba or Taba</td><td>Beach Day + Bedouin Dinner</td><td>Movenpick Taba</td></tr>
                   <tr><td>7</td><td>Sharm El Sheikh</td><td>Shopping + Departure</td><td>Sharm El Sheikh</td></tr>
                 </tbody>
@@ -194,6 +200,7 @@ export default function sinaa() {
       <button id="topBtn" onClick={scrollToTop} className="top-btn">
         <i className="fas fa-arrow-up"></i>
       </button>
+
       <Footer />
     </>
   );
