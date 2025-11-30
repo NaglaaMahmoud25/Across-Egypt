@@ -45,7 +45,7 @@ export default function Giza() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: `url("/images/egypt/giza/giza_hero.jpg")`,
+          backgroundImage: `url("/imges/egypt/giza/giza_hero.jpg")`,
           transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02)`,
           transformStyle: "preserve-3d",
           transition: "transform 0.1s ease-out"
@@ -93,14 +93,14 @@ export default function Giza() {
             <h2 className="section-title">Giza Landmarks</h2>
             <div className="row g-4">
               {[
-                { src: "/images/egypt/giza/giza_khufu.jpg",       title: "Great Pyramid of Khufu", desc: "The largest and oldest pyramid" },
-                { src: "/images/egypt/giza/giza_sphinx.jpg",      title: "Great Sphinx", desc: "Iconic guardian of the Giza Plateau" },
-                { src: "/images/egypt/giza/giza_khafre.jpg",      title: "Pyramid of Khafre", desc: "Still retains its upper casing stones" },
-                { src: "/images/egypt/giza/giza_gem.jpg",         title: "Grand Egyptian Museum", desc: "World's largest archaeological museum" },
-                { src: "/images/egypt/giza/giza_solarboat.jpg",   title: "Solar Boat Museum", desc: "Khufu’s restored ancient boat" },
-                { src: "/images/egypt/giza/giza_menkaure.jpg",    title: "Pyramid of Menkaure", desc: "The smallest of the three main pyramids" },
-                { src: "/images/egypt/giza/giza_sunset.jpg",      title: "Giza Plateau at Sunset", desc: "Magical golden hour views" },
-                { src: "/images/egypt/giza/giza_lightshow.jpg",   title: "Sound & Light Show", desc: "Evening spectacle with historical narration" }
+                { src: "/imges/egypt/giza/giza_khufu.jpg",       title: "Great Pyramid of Khufu", desc: "The largest and oldest pyramid" },
+                { src: "/imges/egypt/giza/giza_sphinx.jpg",      title: "Great Sphinx", desc: "Iconic guardian of the Giza Plateau" },
+                { src: "/imges/egypt/giza/giza_khafre.jpg",      title: "Pyramid of Khafre", desc: "Still retains its upper casing stones" },
+                { src: "/imges/egypt/giza/giza_gem.jpg",         title: "Grand Egyptian Museum", desc: "World's largest archaeological museum" },
+                { src: "/imges/egypt/giza/giza_solarboat.jpg",   title: "Solar Boat Museum", desc: "Khufu’s restored ancient boat" },
+                { src: "/imges/egypt/giza/giza_menkaure.jpg",    title: "Pyramid of Menkaure", desc: "The smallest of the three main pyramids" },
+                { src: "/imges/egypt/giza/giza_sunset.jpg",      title: "Giza Plateau at Sunset", desc: "Magical golden hour views" },
+                { src: "/imges/egypt/giza/giza_lightshow.jpg",   title: "Sound & Light Show", desc: "Evening spectacle with historical narration" }
               ].map((item, i) => (
                 <div className="col-lg-3 col-md-4 col-sm-6" key={i}>
                   <motion.div className="image-card h-100" whileHover={cardHover} variants={fadeUp}>
@@ -139,12 +139,12 @@ export default function Giza() {
             <h2 className="section-title">Popular Nearby Hotels</h2>
             <div className="row g-4">
               {[
-                { img: "/images/egypt/giza/giza_mena.jpg",          name: "Marriott Mena House", loc: "Pyramids View", link: "https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" },
-                { img: "/images/egypt/giza/giza_meridien.jpg",      name: "Le Méridien Pyramids", loc: "Giza", link: "https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" },
-                { img: "/images/egypt/giza/giza_pyramidsview.jpg",  name: "Pyramids View Inn", loc: "Direct View", link: "https://www.booking.com/hotel/eg/pyramids-view-inn.en-gb.html" },
-                { img: "/images/egypt/giza/giza_hilton.jpg",        name: "Hilton Pyramids Golf", loc: "6th of October", link: "https://www.booking.com/hotel/eg/hilton-pyramids-golf.en-gb.html" },
-                { img: "/images/egypt/giza/giza_steigenberger.jpg", name: "Steigenberger Pyramids Cairo", loc: "New Opening", link: "https://www.booking.com/hotel/eg/steigenberger-pyramids-cairo.en-gb.html" },
-                { img: "/images/egypt/giza/giza_jazz.jpg",          name: "Pyramids Resort by Jazz", loc: "Giza", link: "https://www.booking.com/hotel/eg/pyramids-resort-by-jazz.en-gb.html" }
+                { img: "/imges/egypt/giza/giza_mena.jpg",          name: "Marriott Mena House", loc: "Pyramids View", link: "https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" },
+                { img: "/imges/egypt/giza/giza_meridien.jpg",      name: "Le Méridien Pyramids", loc: "Giza", link: "https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" },
+                { img: "/imges/egypt/giza/giza_pyramidsview.jpg",  name: "Pyramids View Inn", loc: "Direct View", link: "https://www.booking.com/hotel/eg/pyramids-view-inn.en-gb.html" },
+                { img: "/imges/egypt/giza/giza_hilton.jpg",        name: "Hilton Pyramids Golf", loc: "6th of October", link: "https://www.booking.com/hotel/eg/hilton-pyramids-golf.en-gb.html" },
+                { img: "/imges/egypt/giza/giza_steigenberger.jpg", name: "Steigenberger Pyramids Cairo", loc: "New Opening", link: "https://www.booking.com/hotel/eg/steigenberger-pyramids-cairo.en-gb.html" },
+                { img: "/imges/egypt/giza/giza_jazz.jpg",          name: "Pyramids Resort by Jazz", loc: "Giza", link: "https://www.booking.com/hotel/eg/pyramids-resort-by-jazz.en-gb.html" }
               ].map((hotel, i) => (
                 <div className="col-lg-4 col-md-6" key={i}>
                   <motion.article className="hotel-card h-100" whileHover={cardHover} variants={fadeUp}>
