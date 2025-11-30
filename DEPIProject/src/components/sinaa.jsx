@@ -45,8 +45,9 @@ export default function Sinai() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: url("/imges/egypt/sinai/sinai_hero.jpg"),
-          transform: perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02),
+          backgroundImage: `url("/imges/egypt/sinai/sinai_hero.jpg")`,
+
+          transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02)`,
           transformStyle: "preserve-3d",
           transition: "transform 0.1s ease-out"
         }}
