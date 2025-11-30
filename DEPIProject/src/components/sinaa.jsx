@@ -45,8 +45,8 @@ export default function Sinai() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: `url("/images/egypt/sinai/sinai_hero.jpg")`,
-          transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02)`,
+          backgroundImage: url("/imges/egypt/sinai/sinai_hero.jpg"),
+          transform: perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02),
           transformStyle: "preserve-3d",
           transition: "transform 0.1s ease-out"
         }}
@@ -94,14 +94,14 @@ export default function Sinai() {
             <h2 className="section-title">Sinai Landmarks</h2>
             <div className="row g-4">
               {[
-                { src: "/images/egypt/sinai/sinai_mount.jpg",       title: "Mount Sinai (Jabal Musa)", desc: "Sacred mountain of divine revelation" },
-                { src: "/images/egypt/sinai/sinai_sharm.jpg",       title: "Sharm El Sheikh Beaches", desc: "Crystal waters and world-class diving" },
-                { src: "/images/egypt/sinai/sinai_catherine.jpg",   title: "Saint Catherine's Monastery", desc: "UNESCO site and oldest Christian monastery" },
-                { src: "/images/egypt/sinai/sinai_bluehole.jpg",    title: "Blue Hole - Dahab", desc: "One of the most dangerous and beautiful dive sites" },
-                { src: "/images/egypt/sinai/sinai_colored.jpg",     title: "Colored Canyon", desc: "Natural masterpiece of colorful rock formations" },
-                { src: "/images/egypt/sinai/sinai_ras.jpg",         title: "Ras Mohammed National Park", desc: "Protected marine paradise with magical coral" },
-                { src: "/images/egypt/sinai/sinai_white.jpg",       title: "White Canyon", desc: "Stunning white limestone canyon adventure" },
-                { src: "/images/egypt/sinai/sinai_taba.jpg",        title: "Taba Heights", desc: "Luxury and tranquility on the Gulf of Aqaba" }
+                { src: "/imges/egypt/sinai/sinai_mount.jpg",       title: "Mount Sinai (Jabal Musa)", desc: "Sacred mountain of divine revelation" },
+                { src: "/imges/egypt/sinai/sinai_sharm..jpg",       title: "Sharm El Sheikh Beaches", desc: "Crystal waters and world-class diving" },
+                { src: "/imges/egypt/sinai/sinai_catherine.jpg",   title: "Saint Catherine's Monastery", desc: "UNESCO site and oldest Christian monastery" },
+                { src: "/imges/egypt/sinai/sinai_bluehole.jpg",    title: "Blue Hole - Dahab", desc: "One of the most dangerous and beautiful dive sites" },
+                { src: "/imges/egypt/sinai/sinai_colored.jpg",     title: "Colored Canyon", desc: "Natural masterpiece of colorful rock formations" },
+                { src: "/imges/egypt/sinai/sinai_ras.jpg",         title: "Ras Mohammed National Park", desc: "Protected marine paradise with magical coral" },
+                { src: "/imges/egypt/sinai/sinai_white.jpg",       title: "White Canyon", desc: "Stunning white limestone canyon adventure" },
+                { src: "/imges/egypt/sinai/sinai_taba.jpg",        title: "Taba Heights", desc: "Luxury and tranquility on the Gulf of Aqaba" }
               ].map((item, i) => (
                 <div className="col-lg-3 col-md-4 col-sm-6" key={i}>
                   <motion.div className="image-card h-100" whileHover={cardHover} variants={fadeUp}>
@@ -121,7 +121,7 @@ export default function Sinai() {
             <div className="section-icon-circle"><i className="fas fa-film"></i></div>
             <h2 className="section-title">Video about Sinai</h2>
             <div className="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
-              <iframe src="https://www.youtube.com/embed/9k5W6u5v8f0" title="Sinai 2024" allowFullScreen></iframe>
+              <iframe src="https://www.youtube.com/embed/nvP9-ZC6zOU" title="Sinai 2024" allowFullScreen></iframe>
             </div>
           </motion.section>
 
@@ -140,12 +140,12 @@ export default function Sinai() {
             <h2 className="section-title">Popular Hotels in Sinai</h2>
             <div className="row g-4">
               {[
-                { img: "/images/egypt/sinai/sinai_four.jpg",      name: "Four Seasons Sharm El Sheikh", loc: "Sharm El Sheikh", link: "https://www.booking.com/hotel/eg/four-seasons-resort-sharm-el-sheikh.en-gb.html" },
-                { img: "/images/egypt/sinai/sinai_rixos.jpg",     name: "Rixos Premium Seagate", loc: "Nabq Bay", link: "https://www.booking.com/hotel/eg/rixos-seagate-sharm.en-gb.html" },
-                { img: "/images/egypt/sinai/sinai_stella.jpg",    name: "Stella Di Mare Beach Hotel & Spa", loc: "Sharm El Maya", link: "https://www.booking.com/hotel/eg/stella-di-mare-beach-hotel-spa-sharm-el-sheikh.en-gb.html" },
-                { img: "/images/egypt/sinai/sinai_albatros.jpg",  name: "Albatros Laguna Vista - Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/laguna-vista-beach-resort-dahab.en-gb.html" },
-                { img: "/images/egypt/sinai/sinai_movenpick.jpg", name: "Movenpick Resort Taba", loc: "Taba", link: "https://www.booking.com/hotel/eg/moevenpick-resort-taba.en-gb.html" },
-                { img: "/images/egypt/sinai/sinai_swiss.jpg",     name: "Swiss Inn Resort Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/swiss-inn-resort-dahab.en-gb.html" }
+                { img: "/imges/egypt/sinai/sinai_four.jpg",      name: "Four Seasons Sharm El Sheikh", loc: "Sharm El Sheikh", link: "https://www.booking.com/hotel/eg/four-seasons-resort-sharm-el-sheikh.en-gb.html" },
+                { img: "/imges/egypt/sinai/sinai_rixos.jpg",     name: "Rixos Premium Seagate", loc: "Nabq Bay", link: "https://www.booking.com/hotel/eg/rixos-seagate-sharm.en-gb.html" },
+                { img: "/imges/egypt/sinai/sinai_stella.jpg",    name: "Stella Di Mare Beach Hotel & Spa", loc: "Sharm El Maya", link: "https://www.booking.com/hotel/eg/stella-di-mare-beach-hotel-spa-sharm-el-sheikh.en-gb.html" },
+                { img: "/imges/egypt/sinai/sinai_albatros.jpg",  name: "Albatros Laguna Vista - Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/laguna-vista-beach-resort-dahab.en-gb.html" },
+                { img: "/imges/egypt/sinai/sinai_movenpick.jpg", name: "Movenpick Resort Taba", loc: "Taba", link: "https://www.booking.com/hotel/eg/moevenpick-resort-taba.en-gb.html" },
+                { img: "/imges/egypt/sinai/sinai_swiss.jpg",     name: "Swiss Inn Resort Dahab", loc: "Dahab", link: "https://www.booking.com/hotel/eg/swiss-inn-resort-dahab.en-gb.html" }
               ].map((hotel, i) => (
                 <div className="col-lg-4 col-md-6" key={i}>
                   <motion.article className="hotel-card h-100" whileHover={cardHover} variants={fadeUp}>
