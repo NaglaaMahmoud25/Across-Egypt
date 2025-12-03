@@ -1,393 +1,53 @@
-/* Luxor.css - Specific styles for Luxor component only */
-
-/* Reset for Luxor component only */
-.luxor-hero, .luxor-section, .luxor-section * {
-  box-sizing: border-box;
-}
-
-/* Global Background */
-body {
-  background-color: #000 !important;
-}
-
-/* Header with 3D Effect */
-.luxor-hero {
+.asw-hero {
   text-align: center;
-  padding: 80px 20px 100px;
+  padding: 60px 20px;
   color: #fff;
-  background: linear-gradient(90deg, rgba(8,8,8,0.75), rgba(30,20,10,0.75)), 
-              url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260?auto=format&fit=crop&w=1770&q=80');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 100px rgba(255,215,0,0.1);
-  clip-path: polygon(0 0, 100% 0, 100% 86%, 50% 100%, 0 86%);
-  position: relative;
-  overflow: visible;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  will-change: transform;
-  transition: all 0.15s ease-out;
+  height: 45vh;
 }
 
-.luxor-hero::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: inherit;
-  filter: blur(20px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
+.asw-hero h1 {
+  font-size: 2.8rem;
+  color: #ffcc80;
 }
 
-.luxor-hero:hover::before {
-  opacity: 0.6;
+.asw-hero p {
+  font-size: 1.1rem;
 }
 
-.luxor-hero:hover {
-  box-shadow: 0 40px 100px rgba(255, 215, 0, 0.4), 
-              0 0 120px rgba(193, 155, 98, 0.5),
-              0 15px 50px rgba(0,0,0,0.9);
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  transform-style: preserve-3d;
-}
-
-.luxor-hero h1 {
-  font-size: 2.9rem;
-  color: #FFD700;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.8), 
-               0 0 40px rgba(255,215,0,0.5),
-               2px 2px 10px rgba(0,0,0,0.6);
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-  font-weight: 800;
-}
-
-.luxor-hero p {
-  color: #fff;
-  opacity: 0.95;
-  font-size: 1.05rem;
-  text-shadow: 0 5px 20px rgba(0,0,0,0.8);
-}
-
-/* Container and sections */
-.container {
-  max-width: 1200px;
+.asw-section {
   margin: 40px auto;
-  padding: 0 20px;
-}
-
-.luxor-section {
-  margin-bottom: 56px;
-  position: relative;
-  padding-top: 12px;
-}
-
-.section-icon-circle {
-  position: absolute;
-  top: -18px;
-  left: 15px;
-  width: 44px;
-  height: 44px;
-  background: #c19b62;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  box-shadow: 0 5px 14px rgba(156,107,49,0.2);
-  z-index: 1;
+  max-width: 1100px;
+  color: #ddd;
 }
 
 .section-title {
-  display: inline-block;
-  font-size: 1.85rem;
-  color: #D8B86A;
-  border-bottom: 3px solid rgba(255,255,255,0.04);
-  padding-bottom: 10px;
-  margin-bottom: 18px;
-  position: relative;
+  color: #ffcc80;
+  margin-bottom: 20px;
 }
 
-.section-title:after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  right: 0;
-  width: 70px;
-  height: 3px;
-  background: #c19b62;
-}
-
-.section-content {
-  color: #ddd;
-  line-height: 1.7;
-}
-
-.section-content p {
-  margin-bottom: 16px;
-}
-
-/* 3D Images grid with perspective effect */
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 18px;
-  perspective: 1000px;
-}
-
-.image-card {
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #0b0b0b, #0f0f0f);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  transition: transform 0.6s ease;
-  border: 1px solid rgba(255,255,255,0.1);
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.image-card:hover {
-  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
-  box-shadow: 0 30px 60px rgba(193,155,98,0.4), 0 0 40px rgba(255,215,0,0.2);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .image-card img {
   width: 100%;
-  height: 240px;
+  height: 220px;
   object-fit: cover;
-  display: block;
-  filter: contrast(1.1) saturate(1.1);
-  transition: transform 0.6s ease;
-}
-
-.image-card:hover img {
-  transform: scale(1.1) translateZ(30px);
+  border-radius: 10px;
 }
 
 .image-info {
-  padding: 16px;
-  color: #ddd;
-  background: rgba(0,0,0,0.8);
-  position: relative;
-  z-index: 2;
+  padding: 10px;
+  text-align: center;
 }
 
-.image-info h3 {
-  color: #FFD966;
-  margin-bottom: 8px;
-}
-
-.image-info p {
-  color: #bbb;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* Map container */
-.map-container {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-  margin-top: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.map-container iframe {
-  width: 100%;
-  height: 400px;
-  border: 0;
-  display: block;
-}
-
-/* Video container */
-.video-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-  margin-top: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
+.map-container iframe,
 .video-container iframe {
   width: 100%;
-  min-height: 420px;
-  border: 0;
-  display: block;
-}
-
-/* Type section */
-#type {
-  background: linear-gradient(to right, rgba(200,160,80,0.1), rgba(193,155,98,0.15));
-  padding: 24px;
-  border-radius: 12px;
-  border-right: 4px solid #c19b62;
-  color: #eae6df;
-}
-
-.hieroglyph {
-  position: absolute;
-  font-size: 4.5rem;
-  opacity: 0.06;
-  bottom: -18px;
-  left: 30px;
-  transform: rotate(10deg);
-}
-
-/* Hotels section */
-.hotel-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
-  margin-top: 18px;
-}
-
-.hotel-card {
-  background: linear-gradient(180deg, #0b0b0b, #0f0f0f);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.6);
-  transition: transform .35s, box-shadow .35s;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.hotel-card:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 6px;
-  background: linear-gradient(90deg, #c19b62, #ffd86b);
-}
-
-.hotel-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform .5s;
-}
-
-.hotel-card:hover {
-  transform: translateY(-8px);
-    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
-
-}
-
-.hotel-card:hover img {
-  transform: scale(1.04);
-}
-
-.hotel-content {
-  padding: 16px;
-  color: #ddd;
-}
-
-.hotel-content h3 {
-  color: #FFD966;
-  margin-bottom: 8px;
-}
-
-.hotel-rating {
-  margin-bottom: 10px;
-  color: #ffd700;
-}
-
-.hotel-rating i {
-  margin-right: 2px;
-}
-
-.hotel-content p {
-  margin-bottom: 8px;
-  color: #bbb;
-  font-size: 0.9rem;
-}
-
-.hotel-card a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background: #c19b62;
-  color: #111;
-  border-radius: 28px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform .2s, background .2s;
-  font-size: 0.9rem;
-}
-
-.hotel-card a:hover {
-  transform: translateY(-4px);
-  background: #ffd966;
-}
-
-/* Scroll to top button */
-.top-btn {
-  display: none;
-  position: fixed;
-  bottom: 26px;
-  right: 26px;
-  z-index: 999;
-  background: #c19b62;
-  color: #111;
+  height: 400px;
   border: none;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.6);
-  cursor: pointer;
-  font-size: 18px;
-  transition: transform .2s;
-}
-
-.top-btn:hover {
-  transform: scale(1.06);
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .luxor-hero h1 {
-    font-size: 1.8rem;
-  }
-  .luxor-hero p {
-    font-size: 0.95rem;
-  }
-  .image-card img {
-    height: 180px;
-  }
-  .video-container iframe {
-    min-height: 260px;
-  }
-  .map-container iframe {
-    height: 300px;
-  }
-  .hotel-cards {
-    grid-template-columns: 1fr;
-  }
-  .section-title {
-    font-size: 1.6rem;
-  }
 }
