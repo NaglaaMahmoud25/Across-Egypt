@@ -422,3 +422,145 @@ body.dark-mode .register-btn:hover {
   .info-dropdown { margin-right: 10px; }
   .info-menu { top: 40px; min-width: 150px; }
 }
+
+/* Burger Icon */
+.burger-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-icon span {
+  width: 28px;
+  height: 3px;
+  background-color: #d4af37;
+  transition: 0.3s;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 8rem;
+  left: -300px;
+  width: 260px;
+ height: calc(100vh - 8rem); 
+  background-color: #111;
+  padding: 20px;
+  box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+  transition: left 0.4s ease;
+  z-index: 3000;
+   overflow-y: auto; /* هنا السحر — يعمل Scroll */
+   /* transform: translateX(100%); */
+}
+
+/* الاختيارية – تنعيم الاسكرول */
+.mobile-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.mobile-menu::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+.mobile-menu.open {
+  left: 0;
+}
+
+/* Close Button */
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #d4af37;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-align: left !important;
+}
+
+/* Links inside mobile menu */
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-links li {
+  margin: 18px 0;
+
+   width: 100%;
+   padding: 3px;
+   background-color: #000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.mobile-links li:hover{
+     background-color: #555;
+     transform: scale(1.02);
+      /* color: #d4af37; */
+}
+.mobile-links a {
+  color: #fff;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: 0.3s;
+    /* background-color: #555; */
+    width: 100%;
+}
+.mobile-links  a:hover{
+      color: #d4af37 !important;
+}
+.nn:hover{
+  color: #d4af37 !important;
+}
+.head{
+  color: #fff;
+   font-size: 1.1rem;
+    font-size: 1.3rem;
+      text-decoration: none;
+}
+.head:hover{
+    color: #d4af37;
+      background-color: #555;
+}
+
+/* Hide normal navbar links on mobile */
+
+
+@media (max-width: 1200px) {
+  html{
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+  
+  top: 0px;
+  }
+  .navbar-links,
+  .browse-group,
+  .login-btn,
+  .register-btn,
+  .mode-toggle,
+  .language-icon,.top-bar {
+    display: none;
+  }
+
+  .burger-icon {
+    display: flex;
+  }
+
+  .top-search-bar {
+    display: none;
+  }
+}
+/*                      */
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none !important;
+  }
+}
+
+
