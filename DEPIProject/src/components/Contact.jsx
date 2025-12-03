@@ -60,7 +60,19 @@ export default function Contact() {
   return (
     <>
       <Navbar />
+ <div className="banner">
+             <img src="/imges/egypt/egypt.jpg" alt="Egypt" className="banner-image" />
 
+      <div className="banner-content">
+        <h1>Explore the Beauty of Egypt</h1>
+        <p>Discover amazing places, hotels, and cultural destinations.</p>
+        <button className="banner-btn">Start Your Journey</button>
+      </div>
+    </div>
+
+      <div className="scrolling-text">
+        <span>🌟 Welcome to Egypt — Discover the land of history and beauty 🌟</span>
+      </div>
       <section className="contact-page">
         <div className="contact-header">
           <h1>Contact Us ✨</h1>
