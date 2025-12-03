@@ -17,7 +17,13 @@ body, html, #root, .App {
     padding-top: 100px; /* نفس ارتفاع Navbar */
 
 }
+@media (max-width: 1200px) {
+  .banner{
+    top: 0px;
+     margin-top: -3rem;
+  }
 
+}
 
 /* ✅ صورة البانر */
 .banner-image {
