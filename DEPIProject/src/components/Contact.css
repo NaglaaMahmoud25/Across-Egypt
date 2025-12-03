@@ -184,3 +184,99 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* ارتفاع مناسب */
+  overflow: hidden;
+  background-color: #000;
+  margin-top: 3rem;
+}
+
+/* ✅ صورة البانر */
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* تغطي المساحة بالكامل */
+  object-position: center;
+  display: block;
+  filter: brightness(0.7);
+  transition: transform 1.2s ease;
+}
+
+/* ✅ تأثير عند مرور الماوس */
+.banner:hover .banner-image {
+  transform: scale(1.05);
+}
+
+/* ✅ النص فوق الصورة */
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.banner-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.banner-btn {
+  background-color: #d4af37;
+  color: #000;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.banner-btn:hover {
+  background-color: #f1cc4b;
+  transform: scale(1.05);
+}
+
+/* ✅ شريط الترحيب الجديد */
+.scrolling-text {
+  background: linear-gradient(90deg, #000000, #d4af37, #000000); /* تدرج ذهبي على أسود */
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 6px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* تأثير ضوء ناعم على النص */
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #d4af37; }
+  50% { text-shadow: 0 0 20px #f8e17d, 0 0 10px #d4af37; }
+  100% { text-shadow: 0 0 5px #d4af37; }
+}
+
+/* حركة النص */
+.scrolling-text span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
