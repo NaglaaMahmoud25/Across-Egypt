@@ -267,31 +267,6 @@ body {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.banner-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-.banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.banner-btn {
-  background-color: #d4af37;
-  color: #000;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.banner-btn:hover {
-  background-color: #f1cc4b;
-  transform: scale(1.05);
-}
 
 /* ✅ شريط الترحيب الجديد */
 .scrolling-text {
