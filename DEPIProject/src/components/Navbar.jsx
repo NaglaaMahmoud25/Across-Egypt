@@ -11,7 +11,11 @@ function Navbar() {
   const [showInfo, setShowInfo] = useState(false);
   const [showInfoDropdown, setShowInfoDropdown] = useState(false);
   const [language, setLanguage] = useState("en");
-
+const [showMobileMenu, setShowMobileMenu] = useState(false);
+// State for Dropdowns
+const [openCategory, setOpenCategory] = useState(false);
+const [openMore, setOpenMore] = useState(false);
+const [openSupport, setOpenSupport] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -136,6 +140,70 @@ function Navbar() {
             <Login />
           </div>
         )}
+         {/* Burger Icon (visible only on small screens) */}
+        
+<button
+  className="burger-icon"
+  onClick={() => setShowMobileMenu(!showMobileMenu)}
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div className={`mobile-menu ${showMobileMenu ? "open" : ""}`}>
+  <button className="close-btn" onClick={() => setShowMobileMenu(false)}>×</button>
+
+  <ul className="mobile-links">
+
+    <li><Link  to="/" onClick={() => setShowMobileMenu(false)}>Home</Link></li>
+    <li><a href="#places-section" onClick={() => setShowMobileMenu(false)}>Provinces</a></li>
+    <li><Link to="/contact" onClick={() => setShowMobileMenu(false)}>Contact</Link></li>
+
+
+    {/* CATEGORY DROPDOWN */}
+    <li className="head" onClick={() => setOpenCategory(!openCategory)}>
+      Category <span className="arrow">{openCategory ? "▲" : "▼"}</span>
+    </li>
+
+    {openCategory && (
+      <ul className="dropdown">
+        <li><Link className="nn" to="/images" onClick={() => setShowMobileMenu(false)}>Images</Link></li>
+        <li><Link className="nn" to="/videos" onClick={() => setShowMobileMenu(false)}>Videos</Link></li>
+        <li><Link className="nn" to="/events" onClick={() => setShowMobileMenu(false)}>Events</Link></li>
+      </ul>
+    )}
+
+
+    {/* MORE DROPDOWN */}
+    <li className="head" onClick={() => setOpenMore(!openMore)}>
+      More <span className="arrow">{openMore ? "▲" : "▼"}</span>
+    </li>
+
+    {openMore && (
+      <ul className="dropdown">
+        <li><Link className="nn"  to="/timeline" onClick={() => setShowMobileMenu(false)}>Timeline</Link></li>
+        <li><Link className="nn"  to="/egypt-history" onClick={() => setShowMobileMenu(false)}>Egyptian History</Link></li>
+        <li><Link className="nn" to="/site-message" onClick={() => setShowMobileMenu(false)}>Site Message</Link></li>
+      </ul>
+    )}
+
+
+    {/* SUPPORT DROPDOWN */}
+    <li className="head" onClick={() => setOpenSupport(!openSupport)}>
+      Support <span className="arrow">{openSupport ? "▲" : "▼"}</span>
+    </li>
+
+    {openSupport && (
+      <ul className="dropdown">
+        <li><Link className="nn" to="/terms" onClick={() => setShowMobileMenu(false)}>Terms & Conditions</Link></li>
+        <li><Link className="nn" to="/privacy" onClick={() => setShowMobileMenu(false)}>Privacy Policy</Link></li>
+        <li><Link className="nn"  to="/related-sites" onClick={() => setShowMobileMenu(false)}>Related Sites</Link></li>
+        <li><Link className="nn"  to="/faq" onClick={() => setShowMobileMenu(false)}>FAQ</Link></li>
+      </ul>
+    )}
+
+  </ul>
+</div>
       </nav>
     </>
   );
