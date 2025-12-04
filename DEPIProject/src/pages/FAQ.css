@@ -5,11 +5,9 @@
   font-family: "Inter", Arial, sans-serif;
   color: #333;
 }
-
 body.dark-mode .advanced-faq-page {
   color: #ddd;
 }
-
 /* Hero Section */
 .faq-hero {
   text-align: center;
