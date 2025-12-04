@@ -65,7 +65,6 @@ export default function Alexandria() {
     <>
       <Navbar />
       <div style={{ height: '80px' }} />
-      <motion.div className="container"> 
       {/* 3D Header with new image */}
       <motion.header 
         className="alex-hero"
@@ -110,6 +109,8 @@ export default function Alexandria() {
           </motion.p>
         </motion.div>
       </motion.header>
+      
+      <motion.div className="container"> 
 
       {/* Container */}
       <motion.div
