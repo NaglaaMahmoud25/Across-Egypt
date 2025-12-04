@@ -50,7 +50,7 @@ const faqData = {
   ]
 };
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_LOAD = 6;
 
 function AccordionItem({ question, answer, isOpen, toggle }) {
   return (
@@ -68,27 +68,36 @@ function FAQ() {
   const [activeTab, setActiveTab] = useState("General");
   const [searchTerm, setSearchTerm] = useState("");
   const [openIndex, setOpenIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_LOAD);
 
   const currentData = faqData[activeTab];
 
-  // Smart search in both question and answer
-  const filteredAndSearched = useMemo(() => {
+  const filteredData = useMemo(() => {
     if (!searchTerm.trim()) return currentData;
-
     const term = searchTerm.toLowerCase();
     return currentData.filter(item =>
-      item.q.toLowerCase().includes(term) ||
-      item.a.toLowerCase().includes(term)
+      item.q.toLowerCase().includes(term) || item.a.toLowerCase().includes(term)
     );
   }, [currentData, searchTerm]);
 
-  // Show only limited items when no search
-  const displayedItems = searchTerm.trim() ? filteredAndSearched : filteredAndSearched.slice(0, ITEMS_PER_PAGE);
+  const displayedItems = searchTerm.trim()
+    ? filteredData
+    : filteredData.slice(0, visibleCount);
 
-  const hasMore = !searchTerm.trim() && filteredAndSearched.length > ITEMS_PER_PAGE;
+  const hasMore = !searchTerm.trim() && visibleCount < currentData.length;
 
   const handleLoadMore = () => {
-    window.scrollTo({ top: document.querySelector(".faq-accordion").offsetTop - 100, behavior: "smooth" });
+    setVisibleCount(prev => prev + ITEMS_PER_LOAD);
+    setTimeout(() => {
+      window.scrollBy({ top: 400, behavior: "smooth" });
+    }, 150);
+  };
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setSearchTerm("");
+    setVisibleCount(ITEMS_PER_LOAD);
+    setOpenIndex(null);
   };
 
   return (
@@ -100,43 +109,37 @@ function FAQ() {
           <p>Everything you need to know before traveling to Egypt</p>
         </div>
 
-        {/* Tabs */}
         <div className="faq-tabs">
           {Object.keys(faqData).map(tab => (
             <button
               key={tab}
               className={`faq-tab ${activeTab === tab ? "active" : ""}`}
-              onClick={() => {
-                setActiveTab(tab);
-                setSearchTerm("");
-                setOpenIndex(null);
-              }}
+              onClick={() => handleTabChange(tab)}
             >
               {tab}
             </button>
           ))}
         </div>
 
-        {/* Search Bar */}
         <div className="faq-search">
           <FaSearch className="search-icon" />
           <input
             type="text"
             placeholder={`Search in ${activeTab.toLowerCase()} FAQs...`}
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              if (e.target.value) setVisibleCount(ITEMS_PER_LOAD);
+            }}
           />
         </div>
 
-        {/* Results Counter */}
         {searchTerm && (
           <p className="search-results-count">
-            Found {filteredAndSearched.length} result{filteredAndSearched.length !== 1 ? "s" : ""}{" "}
-            {searchTerm && `for "${searchTerm}"`}
+            Found {filteredData.length} result{filteredData.length !== 1 ? "s" : ""} for "{searchTerm}"
           </p>
         )}
 
-        {/* Accordion */}
         <div className="faq-accordion">
           {displayedItems.length > 0 ? (
             displayedItems.map((item, idx) => (
@@ -153,10 +156,9 @@ function FAQ() {
           )}
         </div>
 
-        {/* Load More Button - only when not searching */}
-        {!searchTerm.trim() && currentData.length > ITEMS_PER_PAGE && displayedItems.length < currentData.length && (
+        {hasMore && (
           <div className="load-more-container">
-            <button className="load-more-btn" onClick={() => alert("In production: load next 6 items")}>
+            <button className="load-more-btn" onClick={handleLoadMore}>
               Load More Questions
             </button>
           </div>
