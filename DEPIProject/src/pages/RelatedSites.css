@@ -13,7 +13,7 @@ body.dark-mode .related-page {
 /* Hero Section */
 .related-hero {
   text-align: center;
-  background: linear-gradient(135deg, #fff4e6, #fff8f0);
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
   padding: 60px 20px;
   border-radius: 20px;
   margin-bottom: 40px;
@@ -47,7 +47,7 @@ body.dark-mode .related-page {
 }
 
 .related-card {
-  background: #fff;
+  background: #111;
   padding: 25px 20px;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -59,10 +59,11 @@ body.dark-mode .related-page {
   position: relative;
 }
 
+
 .related-card:hover {
   transform: translateY(-10px) rotateX(1deg) rotateY(1deg);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  background: #fff4e6;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+  background: #333;
 }
 
 .card-icon {
