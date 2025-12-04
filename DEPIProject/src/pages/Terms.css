@@ -57,15 +57,22 @@ body.dark-mode .accordion-item {
   padding: 18px 20px;
   cursor: pointer;
   font-weight: 500;
-  transition: background 0.3s;
+  
+    background: rgba(59, 59, 59, 0.957);
+  border: 1px solid #d4af37;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+   
 }
 
 body.dark-mode .accordion-title {
   color: #ffd700;
+
 }
 
 .accordion-title:hover {
-  background-color: #f1cc4b;
+  
+   background: rgba(15, 15, 15, 0.957);
+   color: #fdfdfd;
 }
 
 .accordion-title h3 {
