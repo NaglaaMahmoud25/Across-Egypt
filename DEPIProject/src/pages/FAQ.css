@@ -5,10 +5,12 @@
   font-family: "Inter", Arial, sans-serif;
   color: #333;
 }
+
 body.dark-mode .advanced-faq-page {
   color: #ddd;
 }
-/* Hero Section */
+
+/* ==================== HERO ==================== */
 .faq-hero {
   text-align: center;
   background: linear-gradient(135deg, #fff4e6, #fff8f0);
@@ -38,7 +40,7 @@ body.dark-mode .faq-hero p {
   color: #aaa;
 }
 
-/* Tabs */
+/* ==================== TABS ==================== */
 .faq-tabs {
   display: flex;
   justify-content: center;
@@ -74,7 +76,6 @@ body.dark-mode .faq-hero p {
 body.dark-mode .faq-tab {
   background-color: #1c1c1c;
   border-color: #d4af37;
-  color: #d4af37;
 }
 
 body.dark-mode .faq-tab.active,
@@ -83,7 +84,8 @@ body.dark-mode .faq-tab:hover {
   color: #161313;
 }
 
-/* Search Bar */
+/* ==================== SEARCH BAR ==================== */
+/* ==================== SEARCH BAR (محدّث ومضمون 100%) ==================== */
 .faq-search {
   position: relative;
   display: flex;
@@ -93,19 +95,20 @@ body.dark-mode .faq-tab:hover {
 
 .faq-search .search-icon {
   position: absolute;
-  left: 22%;
+  left: 50%;
   top: 50%;
   transform: translateY(-50%);
   color: #d4af37;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
+  margin-left: -230px; /* نص عرض الـ input تقريبًا (500px ÷ 2 = 250px - شوية عشان الأيقونة تبقى في النص) */
 }
 
 .faq-search input {
   width: 60%;
   max-width: 500px;
-  padding: 14px 20px 14px 50px;
+  padding: 14px 20px 14px 50px;  /* زوّدنا الـ padding من الشمال عشان الأيقونة تبقى جوا */
   border-radius: 16px;
   border: 2px solid #d4af37;
   outline: none;
@@ -114,18 +117,42 @@ body.dark-mode .faq-tab:hover {
   transition: all 0.3s ease;
 }
 
+/* الحل النهائي للون النص (زي ما كان) */
+.faq-search input,
+.faq-search input:focus,
+.faq-search input:active,
+body.dark-mode .faq-search input,
+body.dark-mode .faq-search input::placeholder {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.faq-search input::placeholder {
+  color: #555 !important;
+}
+
 .faq-search input:focus {
   border-color: #f1cc4b;
   box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
 }
 
 body.dark-mode .faq-search input {
-  background-color: #1c1c1c;
-  color: #ddd;
-  border-color: #d4af37;
+  background-color: #1c1c1c !important;
 }
 
-/* Search Results Counter */
+/* للموبايل: نرجع الأيقونة للمكان الصح لما الـ input يبقى 90% */
+@media (max-width: 768px) {
+  .faq-search .search-icon {
+    margin-left: 0;
+    left: 12%;
+  }
+  
+  .faq-search input {
+    width: 90%;
+  }
+}
+
+/* ==================== SEARCH RESULTS COUNT ==================== */
 .search-results-count {
   text-align: center;
   color: #d4af37;
@@ -138,7 +165,7 @@ body.dark-mode .search-results-count {
   color: #f1cc4b;
 }
 
-/* Accordion */
+/* ==================== ACCORDION ==================== */
 .faq-accordion {
   display: flex;
   flex-direction: column;
@@ -162,6 +189,8 @@ body.dark-mode .search-results-count {
 .accordion-item:nth-child(4) { animation-delay: 0.4s; }
 .accordion-item:nth-child(5) { animation-delay: 0.5s; }
 .accordion-item:nth-child(6) { animation-delay: 0.6s; }
+.accordion-item:nth-child(7) { animation-delay: 0.7s; }
+.accordion-item:nth-child(8) { animation-delay: 0.8s; }
 
 .accordion-item:hover {
   transform: translateY(-4px);
@@ -170,10 +199,9 @@ body.dark-mode .search-results-count {
 
 body.dark-mode .accordion-item {
   background-color: #1c1c1c;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
 }
 
-/* Question */
 .accordion-question {
   display: flex;
   justify-content: space-between;
@@ -204,7 +232,6 @@ body.dark-mode .accordion-question h3 {
   transform: rotate(180deg);
 }
 
-/* Answer */
 .accordion-answer {
   max-height: 0;
   overflow: hidden;
@@ -217,7 +244,7 @@ body.dark-mode .accordion-question h3 {
 }
 
 .accordion-item.open .accordion-answer {
-  max-height: 500px; /* يكفي لأي إجابة طويلة */
+  max-height: 800px;
   padding: 20px 28px;
 }
 
@@ -226,7 +253,6 @@ body.dark-mode .accordion-answer {
   color: #ccc;
 }
 
-/* No Results */
 .no-results {
   text-align: center;
   font-style: italic;
@@ -239,17 +265,17 @@ body.dark-mode .no-results {
   color: #777;
 }
 
-/* Load More Button */
+/* ==================== LOAD MORE ==================== */
 .load-more-container {
   text-align: center;
-  margin: 50px 0 20px;
+  margin: 60px 0 20px;
 }
 
 .load-more-btn {
   background-color: transparent;
   color: #d4af37;
   border: 2px solid #d4af37;
-  padding: 14px 40px;
+  padding: 14px 45px;
   border-radius: 50px;
   font-size: 1.1rem;
   font-weight: 600;
@@ -264,17 +290,12 @@ body.dark-mode .no-results {
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
 }
 
-body.dark-mode .load-more-btn {
-  color: #d4af37;
-  border-color: #d4af37;
-}
-
 body.dark-mode .load-more-btn:hover {
   background-color: #d4af37;
   color: #161313;
 }
 
-/* Animation */
+/* ==================== ANIMATION ==================== */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -282,7 +303,7 @@ body.dark-mode .load-more-btn:hover {
   }
 }
 
-/* Responsive */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
   .advanced-faq-page {
     margin: 110px 15px 60px;
@@ -309,10 +330,6 @@ body.dark-mode .load-more-btn:hover {
   .accordion-question {
     font-size: 1.05rem;
     padding: 18px 20px;
-  }
-
-  .accordion-answer {
-    font-size: 1rem;
   }
 
   .faq-tab {
