@@ -1,35 +1,79 @@
-import React, { useState, useEffect } from "react";
-import { FaUser, FaUserPlus, FaChevronDown, FaMoon, FaSun, FaSearch, FaGlobe, FaPhone, FaEnvelope } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { FaUser, FaUserPlus, FaChevronDown, FaMoon, FaSun, FaSearch, FaPhone, FaEnvelope } from "react-icons/fa";
 import "./Navbar.css";
-import Login from "./Login";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [showMedia, setShowMedia] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
-  const [showInfoDropdown, setShowInfoDropdown] = useState(false);
-  const [language, setLanguage] = useState("en");
+const toggleLogin = () => setShowLogin(!showLogin);
+  // dropdowns
+  const [showSupport, setShowSupport] = useState(false);
+  const [showCategory, setShowCategory] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 const [showMobileMenu, setShowMobileMenu] = useState(false);
-// State for Dropdowns
 const [openCategory, setOpenCategory] = useState(false);
 const [openMore, setOpenMore] = useState(false);
 const [openSupport, setOpenSupport] = useState(false);
 
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    document.body.className = darkMode ? "dark-mode" : "light-mode";
-  }, [darkMode]);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-  const toggleLogin = () => setShowLogin(!showLogin);
-  const toggleMedia = () => setShowMedia(!showMedia);
-  const toggleInfo = () => setShowInfo(!showInfo);
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "ar" : "en");
+  // refs لكل dropdown
+  const supportRef = useRef(null);
+  const categoryRef = useRef(null);
+  const moreRef = useRef(null);
+
+  // Close ALL dropdowns
+  const closeAll = () => {
+    setShowSupport(false);
+    setShowCategory(false);
+    setShowMore(false);
+  };
+
+  // Close on scroll (Option A)
+  useEffect(() => {
+    const handleScroll = () => closeAll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close on click outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        supportRef.current &&
+        !supportRef.current.contains(e.target) &&
+        categoryRef.current &&
+        !categoryRef.current.contains(e.target) &&
+        moreRef.current &&
+        !moreRef.current.contains(e.target)
+      ) {
+        closeAll();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Toggle dropdowns (مع إغلاق الباقي)
+  const toggleSupport = () => {
+    setShowSupport(!showSupport);
+    setShowCategory(false);
+    setShowMore(false);
+  };
+
+  const toggleCategory = () => {
+    setShowCategory(!showCategory);
+    setShowSupport(false);
+    setShowMore(false);
+  };
+
+  const toggleMore = () => {
+    setShowMore(!showMore);
+    setShowSupport(false);
+    setShowCategory(false);
   };
 
   return (
@@ -56,57 +100,59 @@ const [openSupport, setOpenSupport] = useState(false);
       {/* Navbar */}
       <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
         <div className="navbar-left">
-          
-          
-
           <img src="/imges/egypt/logo.png" alt="Logo" className="logo" />
 
-          {/* Browse Buttons */}
           <div className="browse-group">
-
-            <div className="browse-dropdown">
-              <button className="browse-btn" onClick={() => setShowInfoDropdown(!showInfoDropdown)}>
+            
+            {/* Support */}
+            <div className="browse-dropdown" ref={supportRef}>
+              <button className="browse-btn" onClick={toggleSupport}>
                 Support <FaChevronDown />
               </button>
-              {showInfoDropdown && (
+
+              {showSupport && (
                 <ul className="category-menu">
-                 <li><Link className="nn"  to="/terms" onClick={() => setShowInfoDropdown(false)}>Terms & Conditions</Link></li>
-                  <li><Link className="nn" to="/privacy" onClick={() => setShowInfoDropdown(false)}>Privacy Policy</Link></li>
-                  <li><Link className="nn" to="/related-sites" onClick={() => setShowInfoDropdown(false)}>Related Sites</Link></li>
-                <li><Link className="nn" to="/faq" onClick={() => setShowInfoDropdown(false)}>FAQ</Link></li>
+                  <li><Link className="nn" to="/terms" onClick={closeAll}>Terms & Conditions</Link></li>
+                  <li><Link className="nn" to="/privacy" onClick={closeAll}>Privacy Policy</Link></li>
+                  <li><Link className="nn" to="/related-sites" onClick={closeAll}>Related Sites</Link></li>
+                  <li><Link className="nn" to="/faq" onClick={closeAll}>FAQ</Link></li>
                 </ul>
               )}
             </div>
-            {/* Media Button */}
 
-            <div className="browse-dropdown">
-              <button className="browse-btn" onClick={toggleMedia}>
+            {/* Category */}
+            <div className="browse-dropdown" ref={categoryRef}>
+              <button className="browse-btn" onClick={toggleCategory}>
                 Category <FaChevronDown />
               </button>
-              {showMedia && (
+
+              {showCategory && (
                 <ul className="category-menu">
-                  <li><Link  className="nn" to="/images" onClick={() => setShowMedia(false)}>Images</Link></li>
-                  <li><Link className="nn"  to="/videos" onClick={() => setShowMedia(false)}>Videos</Link></li>
-                  <li><Link  className="nn" to="/events" onClick={() => setShowMedia(false)}>Events</Link></li>
+                  <li><Link className="nn" to="/images" onClick={closeAll}>Images</Link></li>
+                  <li><Link className="nn" to="/videos" onClick={closeAll}>Videos</Link></li>
+                  <li><Link className="nn" to="/events" onClick={closeAll}>Events</Link></li>
                 </ul>
               )}
             </div>
 
-            {/* Info Button */}
-            <div className="browse-dropdown">
-              <button className="browse-btn" onClick={toggleInfo}>
+            {/* More */}
+            <div className="browse-dropdown" ref={moreRef}>
+              <button className="browse-btn" onClick={toggleMore}>
                 More <FaChevronDown />
               </button>
-              {showInfo && (
+
+              {showMore && (
                 <ul className="category-menu">
-                  <li><Link className="nn" to="/timeline" onClick={() => setShowInfo(false)}>Timeline</Link></li>
-                  <li><Link className="nn" to="/egypt-history" onClick={() => setShowInfo(false)}>Egyptian History</Link></li>
-                  <li><Link className="nn" to="/site-message" onClick={() => setShowInfo(false)}>Site Message</Link></li>
+                  <li><Link className="nn" to="/timeline" onClick={closeAll}>Timeline</Link></li>
+                  <li><Link className="nn" to="/egypt-history" onClick={closeAll}>Egyptian History</Link></li>
+                  <li><Link className="nn" to="/site-message" onClick={closeAll}>Site Message</Link></li>
                 </ul>
               )}
             </div>
+
           </div>
         </div>
+  
 
         {/* Links Right */}
         <div className="navbar-right">
@@ -125,15 +171,7 @@ const [openSupport, setOpenSupport] = useState(false);
             </button>
           </Link>
 
-          {/* Dark Mode */}
-          <button className="mode-toggle" onClick={toggleDarkMode}>
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
 
-          {/* Language Icon */}
-          <button className="language-icon" onClick={toggleLanguage}>
-            <FaGlobe />
-          </button>
         </div>
 
         {showLogin && (
@@ -215,4 +253,3 @@ const [openSupport, setOpenSupport] = useState(false);
 }
 
 export default Navbar;
-
