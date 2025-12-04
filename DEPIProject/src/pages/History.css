@@ -129,7 +129,7 @@
   .timeline-card,
   .timeline-card.left,
   .timeline-card.right {
-    width: 100%;
+  width: 50%;
     align-self: center;
   }
 
