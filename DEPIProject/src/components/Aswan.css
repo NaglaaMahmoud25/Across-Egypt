@@ -5,6 +5,8 @@
   background-size: cover;
   background-position: center;
   height: 45vh;
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 50% 100%, 0 86%);
+
 }
 
 .asw-hero h1 {
