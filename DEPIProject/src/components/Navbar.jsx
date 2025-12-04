@@ -16,6 +16,8 @@ const [showMobileMenu, setShowMobileMenu] = useState(false);
 const [openCategory, setOpenCategory] = useState(false);
 const [openMore, setOpenMore] = useState(false);
 const [openSupport, setOpenSupport] = useState(false);
+
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,39 +56,38 @@ const [openSupport, setOpenSupport] = useState(false);
       {/* Navbar */}
       <nav className={`navbar ${darkMode ? "dark" : "light"}`}>
         <div className="navbar-left">
-          {/* Info Dropdown على الشمال */}
-          <div className="info-dropdown">
-            <button className="info-btn" onClick={() => setShowInfoDropdown(!showInfoDropdown)}>
-              <div className="three-lines">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </button>
-            {showInfoDropdown && (
-              <ul className="info-menu">
-                <li><Link to="/terms" onClick={() => setShowInfoDropdown(false)}>Terms & Conditions</Link></li>
-                <li><Link to="/privacy" onClick={() => setShowInfoDropdown(false)}>Privacy Policy</Link></li>
-                <li><Link to="/related-sites" onClick={() => setShowInfoDropdown(false)}>Related Sites</Link></li>
-                <li><Link to="/faq" onClick={() => setShowInfoDropdown(false)}>FAQ</Link></li>
-              </ul>
-            )}
-          </div>
+          
+          
 
           <img src="/imges/egypt/logo.png" alt="Logo" className="logo" />
 
           {/* Browse Buttons */}
           <div className="browse-group">
+
+            <div className="browse-dropdown">
+              <button className="browse-btn" onClick={() => setShowInfoDropdown(!showInfoDropdown)}>
+                Support <FaChevronDown />
+              </button>
+              {showInfoDropdown && (
+                <ul className="category-menu">
+                 <li><Link className="nn"  to="/terms" onClick={() => setShowInfoDropdown(false)}>Terms & Conditions</Link></li>
+                  <li><Link className="nn" to="/privacy" onClick={() => setShowInfoDropdown(false)}>Privacy Policy</Link></li>
+                  <li><Link className="nn" to="/related-sites" onClick={() => setShowInfoDropdown(false)}>Related Sites</Link></li>
+                <li><Link className="nn" to="/faq" onClick={() => setShowInfoDropdown(false)}>FAQ</Link></li>
+                </ul>
+              )}
+            </div>
             {/* Media Button */}
+
             <div className="browse-dropdown">
               <button className="browse-btn" onClick={toggleMedia}>
                 Category <FaChevronDown />
               </button>
               {showMedia && (
                 <ul className="category-menu">
-                  <li><Link to="/images" onClick={() => setShowMedia(false)}>Images</Link></li>
-                  <li><Link to="/videos" onClick={() => setShowMedia(false)}>Videos</Link></li>
-                  <li><Link to="/events" onClick={() => setShowMedia(false)}>Events</Link></li>
+                  <li><Link  className="nn" to="/images" onClick={() => setShowMedia(false)}>Images</Link></li>
+                  <li><Link className="nn"  to="/videos" onClick={() => setShowMedia(false)}>Videos</Link></li>
+                  <li><Link  className="nn" to="/events" onClick={() => setShowMedia(false)}>Events</Link></li>
                 </ul>
               )}
             </div>
@@ -98,9 +99,9 @@ const [openSupport, setOpenSupport] = useState(false);
               </button>
               {showInfo && (
                 <ul className="category-menu">
-                  <li><Link to="/timeline" onClick={() => setShowInfo(false)}>Timeline</Link></li>
-                  <li><Link to="/egypt-history" onClick={() => setShowInfo(false)}>Egyptian History</Link></li>
-                  <li><Link to="/site-message" onClick={() => setShowInfo(false)}>Site Message</Link></li>
+                  <li><Link className="nn" to="/timeline" onClick={() => setShowInfo(false)}>Timeline</Link></li>
+                  <li><Link className="nn" to="/egypt-history" onClick={() => setShowInfo(false)}>Egyptian History</Link></li>
+                  <li><Link className="nn" to="/site-message" onClick={() => setShowInfo(false)}>Site Message</Link></li>
                 </ul>
               )}
             </div>
@@ -140,7 +141,7 @@ const [openSupport, setOpenSupport] = useState(false);
             <Login />
           </div>
         )}
-         {/* Burger Icon (visible only on small screens) */}
+        {/* Burger Icon (visible only on small screens) */}
         
 <button
   className="burger-icon"
@@ -150,6 +151,9 @@ const [openSupport, setOpenSupport] = useState(false);
   <span></span>
   <span></span>
 </button>
+
+{/* Mobile Side Menu */}
+
 <div className={`mobile-menu ${showMobileMenu ? "open" : ""}`}>
   <button className="close-btn" onClick={() => setShowMobileMenu(false)}>×</button>
 
@@ -204,9 +208,11 @@ const [openSupport, setOpenSupport] = useState(false);
 
   </ul>
 </div>
+
       </nav>
     </>
   );
 }
 
 export default Navbar;
+
