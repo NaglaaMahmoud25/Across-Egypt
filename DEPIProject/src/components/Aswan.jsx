@@ -59,7 +59,6 @@ export default function Aswan() {
     <>
       <Navbar />
       <div style={{ height: '80px' }} />
-      <motion.div className="container"> 
 
         {/* Hero */}
         <motion.header 
@@ -92,6 +91,8 @@ export default function Aswan() {
             </motion.p>
           </motion.div>
         </motion.header>
+
+      <motion.div className="container"> 
 
         {/* Container */}
         <motion.div
