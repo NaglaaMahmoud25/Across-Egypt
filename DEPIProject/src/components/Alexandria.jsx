@@ -166,7 +166,7 @@ export default function Alexandria() {
             <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
               <img
                 loading="lazy"
-                src="https://images.pexels.com/photos/18991528/pexels-photo-18991528.jpeg"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Alexandria%27s_Bibliotheca.jpg/1200px-Alexandria%27s_Bibliotheca.jpg"
                 alt="Bibliotheca Alexandrina"
               />
               <div className="image-info">
@@ -178,7 +178,7 @@ export default function Alexandria() {
             <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
               <img
                 loading="lazy"
-                src="https://images.pexels.com/photos/18934668/pexels-photo-18934668.jpeg"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/CW_QaitbayCitadel_Front.jpg/330px-CW_QaitbayCitadel_Front.jpg"
                 alt="Qaitbay Citadel"
               />
               <div className="image-info">
@@ -190,7 +190,7 @@ export default function Alexandria() {
             <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
               <img
                 loading="lazy"
-                src="https://images.pexels.com/photos/33854606/pexels-photo-33854606.jpeg"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Alexandria_2122972.jpg/500px-Alexandria_2122972.jpg"
                 alt="Corniche"
               />
               <div className="image-info">
