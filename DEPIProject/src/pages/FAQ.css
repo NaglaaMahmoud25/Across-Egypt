@@ -84,31 +84,34 @@ body.dark-mode .faq-tab:hover {
   color: #161313;
 }
 
-/* ==================== SEARCH BAR ==================== */
-/* ==================== SEARCH BAR (محدّث ومضمون 100%) ==================== */
 .faq-search {
   position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
+  width: 100%;
+}
+
+.faq-search .search-wrapper {
+  position: relative;
+  width: 60%;
+  max-width: 500px;
 }
 
 .faq-search .search-icon {
   position: absolute;
-  left: 50%;
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   color: #d4af37;
   font-size: 1.2rem;
   pointer-events: none;
   z-index: 10;
-  margin-left: -230px; /* نص عرض الـ input تقريبًا (500px ÷ 2 = 250px - شوية عشان الأيقونة تبقى في النص) */
 }
 
 .faq-search input {
-  width: 60%;
-  max-width: 500px;
-  padding: 14px 20px 14px 50px;  /* زوّدنا الـ padding من الشمال عشان الأيقونة تبقى جوا */
+  width: 100%;
+  padding: 14px 20px 14px 50px;  
   border-radius: 16px;
   border: 2px solid #d4af37;
   outline: none;
@@ -117,7 +120,7 @@ body.dark-mode .faq-tab:hover {
   transition: all 0.3s ease;
 }
 
-/* الحل النهائي للون النص (زي ما كان) */
+/* باقي الكود زي ما هو */
 .faq-search input,
 .faq-search input:focus,
 .faq-search input:active,
@@ -140,18 +143,16 @@ body.dark-mode .faq-search input {
   background-color: #1c1c1c !important;
 }
 
-/* للموبايل: نرجع الأيقونة للمكان الصح لما الـ input يبقى 90% */
+/* موبايل – مثالي 100% */
 @media (max-width: 768px) {
-  .faq-search .search-icon {
-    margin-left: 0;
-    left: 12%;
-  }
-  
-  .faq-search input {
+  .faq-search .search-wrapper {
     width: 90%;
   }
+  
+  .faq-search .search-icon {
+    left: 16px;   /* ثابته ومظبوطة دايمًا */
+  }
 }
-
 /* ==================== SEARCH RESULTS COUNT ==================== */
 .search-results-count {
   text-align: center;
