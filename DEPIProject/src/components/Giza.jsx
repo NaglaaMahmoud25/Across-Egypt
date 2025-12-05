@@ -2,174 +2,265 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Giza.css";
+import './Giza.css'; // نفس الـ CSS بتاع الأقصر (هيشتغل 100% مع الجيزة)
 
-const containerVariant = { hidden: {}, show: { transition: { staggerChildren: 0.15 } } };
-const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } } };
-const cardHover = { scale: 1.05, transition: { duration: 0.3 } };
+const containerVariant = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" }
+  },
+};
+
+const cardHover = {
+  scale: 1.05,
+  transition: { duration: 0.3 }
+};
 
 export default function Giza() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const topBtn = document.getElementById("topBtn");
-    const handleScroll = () => { topBtn.style.display = window.scrollY > 300 ? "block" : "none"; };
-    window.addEventListener("scroll", handleScroll);
-    topBtn.style.display = "none";
-    return () => window.removeEventListener("scroll", handleScroll);
+    function onScroll() {
+      const show = window.scrollY > 300;
+      if (topBtn) topBtn.style.display = show ? "block" : "none";
+    }
+    window.addEventListener("scroll", onScroll);
+    if (topBtn) topBtn.style.display = "none";
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-    const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    setMousePosition({ x: x * 20, y: y * 20 });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    setMousePosition({
+      x: ((x - centerX) / centerX) * 20,
+      y: ((y - centerY) / centerY) * 20
+    });
   };
 
-  const handleMouseLeave = () => setMousePosition({ x: 0, y: 0 });
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
+  };
 
   return (
     <>
       <Navbar />
-      <div style={{ height: "80px" }} />
+      <div style={{ height: '80px' }} />
 
-      {/* Hero */}
-      <motion.header
-        className="giza-hero position-relative d-flex align-items-center justify-content-center text-center"
+      {/* 3D Header */}
+      <motion.header 
+        className="Giza-hero"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
-          backgroundImage: `url("/imges/egypt/giza/giza_hero.jpg")`,
-          transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02,1.02,1.02)`,
-          transformStyle: "preserve-3d",
-          transition: "transform 0.1s ease-out"
+          transform: `perspective(1500px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg) scale3d(1.02, 1.02, 1.02)`,
+          transition: 'transform 0.1s ease-out',
+          transformStyle: 'preserve-3d',
+          backgroundImage: `url("/imges/egypt/giza/giza_hero.jpg")`, // صورة الهيرو الجديدة
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
-        <div className="hero-overlay"></div>
-        <motion.div className="hero-content">
-          <motion.h1 className="display-3 fw-bold" style={{ transform: "translateZ(60px)" }}>
+        <div className="hero-overlay" />
+        <motion.div
+          className="hero-content"
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{
+            transform: `translateZ(80px)`,
+            transformStyle: 'preserve-3d'
+          }}
+        >
+          <motion.h1 style={{ transform: `translateZ(60px)` }}>
             Giza Governorate
           </motion.h1>
-          <motion.p className="lead fs-3" style={{ transform: "translateZ(40px)" }}>
-            Home to the Great Pyramids & the Sphinx – Where Ancient Wonders Meet Modern Life
+          <motion.p style={{ transform: `translateZ(40px)` }}>
+            Home to the Great Pyramids & the Sphinx – The Last Remaining Wonder of the Ancient World
           </motion.p>
         </motion.div>
       </motion.header>
 
-      <div className="container my-5">
-        <motion.div variants={containerVariant} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
-
-          {/* Description */}
-          <motion.section className="giza-section mb-5" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-info"></i></div>
-            <h2 className="section-title">Description</h2>
-            <div className="section-content text-light lh-lg">
-              <p>Giza Governorate is one of Egypt’s most famous and historically significant regions, home to the Great Pyramids of Giza and the Great Sphinx – the last surviving wonder of the ancient world.</p>
-              <p>Located on the west bank of the Nile, just minutes from downtown Cairo, Giza perfectly blends thousands of years of Pharaonic heritage with the energy of a modern megacity. It also hosts the Grand Egyptian Museum (GEM), one of the largest archaeological museums on Earth.</p>
-            </div>
-          </motion.section>
-
-          {/* Map */}
-          <motion.section className="giza-section mb-5" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-map-marker-alt"></i></div>
-            <h2 className="section-title">Location on Map</h2>
-            <div className="map-container ratio ratio-16x9 shadow-lg rounded overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55256.39561209852!2d31.0941439699646!3d30.01305597139566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846c5b14f53c1%3A0x68c95ca2b5fbaec5!2sGiza%2C%20Egypt!5e0!3m2!1sen!2seg!4v1735660000000"
-                allowFullScreen loading="lazy" title="Giza Map" className="border-0">
-              </iframe>
-            </div>
-          </motion.section>
-
-          {/* Landmarks */}
-          <motion.section className="giza-section mb-5" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-images"></i></div>
-            <h2 className="section-title">Giza Landmarks</h2>
-            <div className="row g-4">
-              {[
-                { src: "/imges/egypt/giza/giza_khufu.jpg",       title: "Great Pyramid of Khufu", desc: "The largest and oldest pyramid" },
-                { src: "/imges/egypt/giza/giza_sphinx.jpg",      title: "Great Sphinx", desc: "Iconic guardian of the Giza Plateau" },
-                { src: "/imges/egypt/giza/giza_khafre.jpg",      title: "Pyramid of Khafre", desc: "Still retains its upper casing stones" },
-                { src: "/imges/egypt/giza/giza_gem.jpg",         title: "Grand Egyptian Museum", desc: "World's largest archaeological museum" },
-                { src: "/imges/egypt/giza/giza_solarboat.jpg",   title: "Solar Boat Museum", desc: "Khufu’s restored ancient boat" },
-                { src: "/imges/egypt/giza/giza_menkaure.jpg",    title: "Pyramid of Menkaure", desc: "The smallest of the three main pyramids" },
-                { src: "/imges/egypt/giza/giza_sunset.jpg",      title: "Giza Plateau at Sunset", desc: "Magical golden hour views" },
-                { src: "/imges/egypt/giza/giza_lightshow.jpg",   title: "Sound & Light Show", desc: "Evening spectacle with historical narration" }
-              ].map((item, i) => (
-                <div className="col-lg-3 col-md-4 col-sm-6" key={i}>
-                  <motion.div className="image-card h-100" whileHover={cardHover} variants={fadeUp}>
-                    <img src={item.src} className="card-img-top" alt={item.title} loading="lazy" />
-                    <div className="image-info p-3">
-                      <h3 className="h6 text-warning">{item.title}</h3>
-                      <p className="small text-light">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-
-          {/* Video */}
-          <motion.section className="giza-section mb-5" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-film"></i></div>
-            <h2 className="section-title">Video about Giza</h2>
-            <div className="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
-              <iframe src="https://www.youtube.com/embed/PAHcY-1QnYs" title="Giza Pyramids 2025" allowFullScreen></iframe>
-            </div>
-          </motion.section>
-
-          {/* Place Type */}
-          <motion.section className="giza-section mb-5 text-center" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-monument"></i></div>
-            <h2 className="section-title">Place Type</h2>
-            <p className="fw-bold fs-3 text-warning">
-              Pharaonic • Archaeological • Historical • World Wonder • Tourist • Cultural
+      {/* Container */}
+      <motion.div
+        className="container"
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.12 }}
+      >
+        {/* Description */}
+        <motion.section id="desc" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-info"></i>
+          </div>
+          <h2 className="section-title">Description</h2>
+          <div className="section-content">
+            <p>
+              Giza Governorate is one of Egypt’s most famous and historically significant regions, home to the Great Pyramids of Giza and the Great Sphinx – the last surviving wonder of the ancient world.
             </p>
-          </motion.section>
+            <p>
+              Located on the west bank of the Nile, just minutes from downtown Cairo, Giza perfectly blends thousands of years of Pharaonic heritage with the energy of a modern megacity. It also hosts the Grand Egyptian Museum (GEM), one of the largest archaeological museums on Earth.
+            </p>
+          </div>
+        </motion.section>
 
-          {/* Hotels */}
-          <motion.section className="giza-section" variants={fadeUp}>
-            <div className="section-icon-circle"><i className="fas fa-concierge-bell"></i></div>
-            <h2 className="section-title">Popular Nearby Hotels</h2>
-            <div className="row g-4">
-              {[
-                { img: "/imges/egypt/giza/giza_mena.jpg",          name: "Marriott Mena House", loc: "Pyramids View", link: "https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" },
-                { img: "/imges/egypt/giza/giza_meridien.jpg",      name: "Le Méridien Pyramids", loc: "Giza", link: "https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" },
-                { img: "/imges/egypt/giza/giza_pyramidsview.jpg",  name: "Pyramids View Inn", loc: "Direct View", link: "https://www.booking.com/hotel/eg/pyramids-view-inn.en-gb.html" },
-                { img: "/imges/egypt/giza/giza_hilton.jpg",        name: "Hilton Pyramids Golf", loc: "6th of October", link: "https://www.booking.com/hotel/eg/hilton-pyramids-golf.en-gb.html" },
-                { img: "/imges/egypt/giza/giza_steigenberger.jpg", name: "Steigenberger Pyramids Cairo", loc: "New Opening", link: "https://www.booking.com/hotel/eg/steigenberger-pyramids-cairo.en-gb.html" },
-                { img: "/imges/egypt/giza/giza_jazz.jpg",          name: "Pyramids Resort by Jazz", loc: "Giza", link: "https://www.booking.com/hotel/eg/pyramids-resort-by-jazz.en-gb.html" }
-              ].map((hotel, i) => (
-                <div className="col-lg-4 col-md-6" key={i}>
-                  <motion.article className="hotel-card h-100" whileHover={cardHover} variants={fadeUp}>
-                    <img src={hotel.img} className="card-img-top" alt={hotel.name} loading="lazy" />
-                    <div className="hotel-content p-4">
-                      <div className="hotel-rating text-warning mb-2">
-                        <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
-                      </div>
-                      <h3 className="h5 text-warning">{hotel.name}</h3>
-                      <p className="text-light small">Luxury stay with pyramid views</p>
-                      <p className="small text-muted"><i className="fas fa-map-marker-alt"></i> {hotel.loc}</p>
-                      <a href={hotel.link} target="_blank" rel="noreferrer" className="btn btn-warning mt-3 btn-sm">
-                        Book Now
-                      </a>
-                    </div>
-                  </motion.article>
+        {/* Map */}
+        <motion.section id="map" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-map-marker-alt"></i>
+          </div>
+          <h2 className="section-title">Location on Map</h2>
+          <motion.div className="map-container" whileHover={{ scale: 1.01 }} transition={{ duration: 0.3 }}>
+            <iframe
+              title="giza-map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55256.39561209852!2d31.0941439699646!3d30.01305597139566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846c5b14f53c1%3A0x68c95ca2b5fbaec5!2sGiza%2C%20Egypt!5e0!3m2!1sen!2seg!4v1735660000000"
+              allowFullScreen
+              loading="lazy"
+            />
+          </motion.div>
+        </motion.section>
+
+        {/* Images */}
+        <motion.section id="images" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-images"></i>
+          </div>
+          <h2 className="section-title">Giza Landmarks</h2>
+          <motion.div className="images">
+            <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_khufu.jpg" alt="Great Pyramid of Khufu" />
+              <div className="image-info">
+                <h3>Great Pyramid of Khufu</h3>
+                <p>The largest and oldest pyramid, built ~2580 BC.</p>
+              </div>
+            </motion.div>
+
+            <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_sphinx.jpg" alt="Great Sphinx" />
+              <div className="image-info">
+                <h3>The Great Sphinx</h3>
+                <p>Iconic guardian with the body of a lion and head of a pharaoh.</p>
+              </div>
+            </motion.div>
+
+            <motion.div className="image-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_gem.jpg" alt="Grand Egyptian Museum" />
+              <div className="image-info">
+                <h3>Grand Egyptian Museum</h3>
+                <p>The world's largest archaeological museum, located beside the pyramids.</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.section>
+
+        {/* Video */}
+        <motion.section id="video" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-film"></i>
+          </div>
+          <h2 className="section-title">Video about Giza</h2>
+          <motion.div className="video-container" whileInView={{ scale: 1 }} initial={{ scale: 0.98 }} viewport={{ once: true }}>
+            <iframe
+              title="giza-video"
+              src="https://www.youtube.com/embed/PAHcY-1QnYs"
+              allowFullScreen
+            />
+          </motion.div>
+        </motion.section>
+
+        {/* Type */}
+        <motion.section id="type" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-monument"></i>
+          </div>
+          <h2 className="section-title">Place Type</h2>
+          <div className="section-content">
+            <p style={{ textAlign: 'center', fontSize: '1.3rem' }}>
+              <strong>Pharaonic • One of the Seven Wonders • World Heritage • Archaeological • Historical • Global Icon</strong>
+            </p>
+          </div>
+          <div className="hieroglyph">𓄿𓇋𓈖𓋹𓍱</div>
+        </motion.section>
+
+        {/* Hotels */}
+        <motion.section id="hotels" className="Giza-section" variants={fadeUp}>
+          <div className="section-icon-circle">
+            <i className="fas fa-concierge-bell"></i>
+          </div>
+          <h2 className="section-title">Popular Nearby Hotels</h2>
+          <motion.div className="hotel-cards">
+            <motion.article className="hotel-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_mena.jpg" alt="Marriott Mena House" />
+              <div className="hotel-content">
+                <div className="hotel-rating">
+                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
                 </div>
-              ))}
-            </div>
-          </motion.section>
+                <h3>Marriott Mena House</h3>
+                <p>Historic luxury hotel with direct pyramid views</p>
+                <p><i className="fas fa-map-marker-alt"></i> Pyramids Road, Giza</p>
+                <a href="https://www.booking.com/hotel/eg/marriott-mena-house-cairo.en-gb.html" target="_blank" rel="noreferrer">
+                  <i className="fas fa-external-link-alt"></i> Book Now
+                </a>
+              </div>
+            </motion.article>
 
-        </motion.div>
-      </div>
+            <motion.article className="hotel-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_meridien.jpg" alt="Le Méridien Pyramids" />
+              <div className="hotel-content">
+                <div className="hotel-rating">
+                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>
+                </div>
+                <h3>Le Méridien Pyramids</h3>
+                <p>Modern 5-star hotel with stunning views</p>
+                <p><i className="fas fa-map-marker-alt"></i> Al Haram, Giza</p>
+                <a href="https://www.booking.com/hotel/eg/le-meridien-pyramids-hotel-spa.en-gb.html" target="_blank" rel="noreferrer">
+                  <i className="fas fa-external-link-alt"></i> Book Now
+                </a>
+              </div>
+            </motion.article>
 
-      <button id="topBtn" onClick={scrollToTop} className="top-btn">
+            <motion.article className="hotel-card" whileHover={cardHover} variants={fadeUp}>
+              <img loading="lazy" src="/imges/egypt/giza/giza_pyramidsview.jpg" alt="Pyramids View Inn" />
+              <div className="hotel-content">
+                <div className="hotel-rating">
+                  <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star-half-alt"></i>
+                </div>
+                <h3>Pyramids View Inn</h3>
+                <p>Amazing rooftop terrace overlooking the pyramids</p>
+                <p><i className="fas fa-map-marker-alt"></i> Nazlet El-Samman</p>
+                <a href="https://www.booking.com/hotel/eg/pyramids-view-inn.en-gb.html" target="_blank" rel="noreferrer">
+                  <i className="fas fa-external-link-alt"></i> Book Now
+                </a>
+              </div>
+            </motion.article>
+          </motion.div>
+        </motion.section>
+      </motion.div>
+
+      {/* Scroll Up Button */}
+      <button id="topBtn" onClick={scrollToTop} title="Back to Top" className="top-btn">
         <i className="fas fa-arrow-up"></i>
       </button>
 
