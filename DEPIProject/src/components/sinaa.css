@@ -1,6 +1,7 @@
-.sinai-hero,
-.sinai-section,
-.sinai-section * {
+/* sinai.css - Specific styles for sinai component only */
+
+/* Reset for sinai component only */
+.sinai-hero, .sinai-section, .sinai-section * {
   box-sizing: border-box;
 }
 
@@ -14,8 +15,8 @@ body {
   text-align: center;
   padding: 80px 20px 100px;
   color: #fff;
-  background: linear-gradient(90deg, rgba(8,8,8,0.75), rgba(30,20,10,0.75)),
-              url('https://images.unsplash.com/photo-1580130716670-523b9e2fdd15?auto=format&fit=crop&w=1770&q=80');
+  background: linear-gradient(90deg, rgba(8,8,8,0.75), rgba(30,20,10,0.75)), 
+              url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260?auto=format&fit=crop&w=1770&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -48,7 +49,7 @@ body {
 }
 
 .sinai-hero:hover {
-  box-shadow: 0 40px 100px rgba(255, 215, 0, 0.4),
+  box-shadow: 0 40px 100px rgba(255, 215, 0, 0.4), 
               0 0 120px rgba(193, 155, 98, 0.5),
               0 15px 50px rgba(0,0,0,0.9);
 }
@@ -72,7 +73,7 @@ body {
 .sinai-hero h1 {
   font-size: 2.9rem;
   color: #FFD700;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.8),
+  text-shadow: 0 10px 30px rgba(0,0,0,0.8), 
                0 0 40px rgba(255,215,0,0.5),
                2px 2px 10px rgba(0,0,0,0.6);
   margin-bottom: 8px;
@@ -290,7 +291,8 @@ body {
 
 .hotel-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+
 }
 
 .hotel-card:hover img {
@@ -365,7 +367,7 @@ body {
   transform: scale(1.06);
 }
 
-
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .sinai-hero h1 {
     font-size: 1.8rem;
