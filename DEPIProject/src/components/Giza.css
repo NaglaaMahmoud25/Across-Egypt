@@ -1,4 +1,4 @@
-.luxor-hero, .luxor-section, .luxor-section * {
+.Giza-hero, .Giza-section, .Giza-section * {
   box-sizing: border-box;
 }
 
@@ -8,7 +8,7 @@ body {
 }
 
 /* Header with 3D Effect */
-.luxor-hero {
+.Giza-hero {
   text-align: center;
   padding: 80px 20px 100px;
   color: #fff;
@@ -27,7 +27,7 @@ body {
   transition: all 0.15s ease-out;
 }
 
-.luxor-hero::before {
+.Giza-hero::before {
   content: '';
   position: absolute;
   top: -10px;
@@ -41,11 +41,11 @@ body {
   z-index: -1;
 }
 
-.luxor-hero:hover::before {
+.Giza-hero:hover::before {
   opacity: 0.6;
 }
 
-.luxor-hero:hover {
+.Giza-hero:hover {
   box-shadow: 0 40px 100px rgba(255, 215, 0, 0.4), 
               0 0 120px rgba(193, 155, 98, 0.5),
               0 15px 50px rgba(0,0,0,0.9);
@@ -67,7 +67,7 @@ body {
   transform-style: preserve-3d;
 }
 
-.luxor-hero h1 {
+.Giza-hero h1 {
   font-size: 2.9rem;
   color: #FFD700;
   text-shadow: 0 10px 30px rgba(0,0,0,0.8), 
@@ -78,7 +78,7 @@ body {
   font-weight: 800;
 }
 
-.luxor-hero p {
+.Giza-hero p {
   color: #fff;
   opacity: 0.95;
   font-size: 1.05rem;
@@ -92,7 +92,7 @@ body {
   padding: 0 20px;
 }
 
-.luxor-section {
+.Giza-section {
   margin-bottom: 56px;
   position: relative;
   padding-top: 12px;
@@ -366,10 +366,10 @@ body {
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-  .luxor-hero h1 {
+  .Giza-hero h1 {
     font-size: 1.8rem;
   }
-  .luxor-hero p {
+  .Giza-hero p {
     font-size: 0.95rem;
   }
   .image-card img {
