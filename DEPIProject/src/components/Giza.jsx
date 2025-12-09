@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import './Giza.css'; // نفس الـ CSS بتاع الأقصر (هيشتغل 100% مع الجيزة)
+import './Giza.css'; 
 
 const containerVariant = {
   hidden: {},
